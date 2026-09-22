@@ -5,9 +5,9 @@
 <head>
   <base href="https://fm.usp.br/museu/portal/">
   <meta charset="utf-8" />
-  <title>:: FMUSP </title>
-  <meta name="keywords" content="FMUSP" />
-  <meta name="description" content="" />
+  <title>:: FMUSP - Museu Histórico "Prof. Carlos da Silva Lacaz"</title>
+  <meta name="keywords" content="FMUSP, Museu Histórico, CPDoc" />
+  <meta name="description" content="Museu Histórico Prof. Carlos da Silva Lacaz - Faculdade de Medicina da USP" />
   <meta name="Author" content="Adriano Santos [www.dna.com.br]" />
   <meta content=":: FMUSP " property="og:title" />
   <meta name="robots" content="index, follow">
@@ -48,11 +48,27 @@
   <link href="/fmusp/assets/css/header-4.css" rel="stylesheet" type="text/css" />
   <link href="/fmusp/assets/css/footer-default.css" rel="stylesheet" type="text/css" />
   <link href="/fmusp/assets/css/color_scheme/darkgreen.css" rel="stylesheet" type="text/css" id="color_scheme" />
-
+  <link rel="stylesheet" type="text/css" href="/fmusp/assets/plugins/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/fmusp/assets/plugins/slick/slick-theme.css"/>
+  
   <script type="text/javascript" src="/fmusp/assets/plugins/jquery-2.2.3.min.js"></script>
+  <script type="text/javascript" src="/fmusp/assets/plugins/FancyBox/jquery.fancybox.js?v=2.1.7"></script>
+  <link rel="stylesheet" type="text/css" href="/fmusp/assets/plugins/FancyBox/jquery.fancybox.css?v=2.1.7" media="screen" />
+  <script type="text/javascript" src="/fmusp/assets/plugins/modernizr.min.js"></script>
 
-  <!-- ESTILOS DO CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc) -->
+  <!-- ESTILOS DO TEMA E DOS MÓDULOS DE DOCUMENTAÇÃO -->
   <style type="text/css">
+    .btn-primary { border-color:#004F71; background-color:#004F71; }
+    .btn-primary:hover { border-color: #01405C; background-color: #01405C; }
+    .block { color: rgb(136, 136, 136); }
+    .sticky-container{ padding: 0px; margin: 0px; position: fixed; right: -119px; top:350px; width: 200px; z-index: 99999; }
+    .sticky li{ list-style-type: none; background-color: #333; color: #efefef; height: 43px; padding: 0px; margin: 0px 0px 1px 0px; transition:all 0.25s ease-in-out; cursor: pointer; }
+    .sticky li:hover{ margin-left: -115px; }
+    .sticky li img{ float: left; margin: 5px 5px; margin-right: 10px; }
+    .sticky li p{ padding: 0px; margin: 0px; text-transform: uppercase; line-height: 43px; }
+    .sticky li a{ color:#dddddd; text-decoration: none; }
+    
+    /* Módulos de Atendimento do Museu (CPDoc) */
     .cpd-form-card {
       background: #ffffff;
       padding: 28px;
@@ -66,14 +82,22 @@
     }
     .cpd-header-title {
       color: #136357 !important;
-      font-size: 1.6rem !important;
+      font-size: 1.45rem !important;
       font-weight: 700 !important;
-      margin-bottom: 6px !important;
+      margin-bottom: 4px !important;
       margin-top: 0 !important;
+    }
+    .cpd-header-sector {
+      color: #5a6a85;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     .cpd-header-subtitle {
       color: #8b1e2f;
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       font-weight: 600;
       margin-top: 0;
       margin-bottom: 8px;
@@ -93,37 +117,18 @@
     }
     .cpd-section-box h3 {
       color: #136357;
-      font-size: 1.08rem;
+      font-size: 1.05rem;
       margin-top: 0;
       margin-bottom: 16px;
       padding-left: 10px;
       border-left: 4px solid #8b1e2f;
       font-weight: 700;
     }
-    .cpd-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .cpd-grid-4 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 12px;
-    }
-    .cpd-grid-full {
-      grid-column: span 2;
-    }
-    .cpd-field {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 12px;
-    }
-    .cpd-field label {
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: #334155;
-      margin-bottom: 6px;
-    }
+    .cpd-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cpd-grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 12px; }
+    .cpd-grid-full { grid-column: span 2; }
+    .cpd-field { display: flex; flex-direction: column; margin-bottom: 12px; }
+    .cpd-field label { font-weight: 600; font-size: 0.88rem; color: #334155; margin-bottom: 6px; }
     .cpd-field input[type="text"],
     .cpd-field input[type="email"],
     .cpd-field input[type="tel"],
@@ -140,9 +145,7 @@
       box-sizing: border-box;
       background-color: #ffffff;
     }
-    .cpd-field input:focus,
-    .cpd-field select:focus,
-    .cpd-field textarea:focus {
+    .cpd-field input:focus, .cpd-field select:focus, .cpd-field textarea:focus {
       border-color: #136357;
       outline: none;
       box-shadow: 0 0 0 2px rgba(19, 99, 87, 0.18);
@@ -157,65 +160,20 @@
       line-height: 1.45;
       cursor: pointer;
     }
-    .cpd-checkbox-row input {
-      margin-top: 3px;
-      accent-color: #136357;
-      min-width: 16px;
-      min-height: 16px;
-    }
+    .cpd-checkbox-row input { margin-top: 3px; accent-color: #136357; min-width: 16px; min-height: 16px; }
 
-    /* WIZARD STEPPER */
-    .cpd-wizard-nav {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 10px;
-      gap: 8px;
-      overflow-x: auto;
-    }
-    .cpd-wizard-step {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-    .cpd-wizard-step.active {
-      color: #136357;
-    }
-    .cpd-wizard-step.completed {
-      color: #059669;
-    }
-    .cpd-step-number {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #e2e8f0;
-      color: #475569;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-    }
-    .cpd-wizard-step.active .cpd-step-number {
-      background: #136357;
-      color: #ffffff;
-    }
-    .cpd-wizard-step.completed .cpd-step-number {
-      background: #059669;
-      color: #ffffff;
-    }
-    .cpd-step-pane {
-      display: none;
-    }
-    .cpd-step-pane.active {
-      display: block;
-    }
+    /* Stepper Wizard */
+    .cpd-wizard-nav { display: flex; justify-content: space-between; margin-bottom: 24px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; gap: 8px; overflow-x: auto; }
+    .cpd-wizard-step { font-size: 0.82rem; font-weight: 700; color: #94a3b8; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .cpd-wizard-step.active { color: #136357; }
+    .cpd-wizard-step.completed { color: #059669; }
+    .cpd-step-number { width: 22px; height: 22px; border-radius: 50%; background: #e2e8f0; color: #475569; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; }
+    .cpd-wizard-step.active .cpd-step-number { background: #136357; color: #ffffff; }
+    .cpd-wizard-step.completed .cpd-step-number { background: #059669; color: #ffffff; }
+    .cpd-step-pane { display: none; }
+    .cpd-step-pane.active { display: block; }
 
-    /* CONTAINER DE LEITURA DAS MINUTAS */
+    /* Recipiente de Leitura Obrigatória */
     .cpd-termo-container {
       height: 250px;
       overflow-y: scroll;
@@ -229,13 +187,7 @@
       margin-bottom: 8px;
       text-align: justify;
     }
-    .cpd-termo-container h4 {
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #136357;
-      margin-top: 14px;
-      margin-bottom: 6px;
-    }
+    .cpd-termo-container h4 { font-size: 0.92rem; font-weight: 700; color: #136357; margin-top: 14px; margin-bottom: 6px; }
     .cpd-scroll-status {
       padding: 6px 12px;
       background: #f1f5f9;
@@ -247,14 +199,7 @@
       justify-content: space-between;
       margin-bottom: 16px;
     }
-    .cpd-scroll-status.completed {
-      background: #ecfdf5;
-      color: #065f46;
-      border-color: #a7f3d0;
-      font-weight: 600;
-    }
-
-    /* REGRAS DE CITAÇÃO */
+    .cpd-scroll-status.completed { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; font-weight: 600; }
     .cpd-citation-preview {
       background: #f8fafc;
       border-left: 4px solid #136357;
@@ -264,52 +209,17 @@
       color: #334155;
       margin-bottom: 15px;
       font-family: monospace;
+      line-height: 1.5;
     }
-
-    /* BOTÕES */
-    .cpd-btn-group {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 24px;
-      padding-top: 15px;
-      border-top: 1px solid #edf2f7;
-    }
-    .cpd-btn {
-      padding: 10px 22px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      border-radius: 4px;
-      cursor: pointer;
-      border: none;
-      transition: background 0.2s;
-    }
-    .cpd-btn-prev {
-      background: #e2e8f0;
-      color: #334155;
-    }
-    .cpd-btn-prev:hover {
-      background: #cbd5e1;
-    }
-    .cpd-btn-next {
-      background: #136357;
-      color: #ffffff;
-    }
-    .cpd-btn-next:hover {
-      background: #0e4b42;
-    }
-    .cpd-btn-submit {
-      background-color: #136357;
-      color: #ffffff;
-    }
-    .cpd-btn-submit:disabled {
-      background-color: #94a3b8;
-      cursor: not-allowed;
-      opacity: 0.7;
-    }
-    .cpd-btn-submit:hover:not(:disabled) {
-      background-color: #0e4b42;
-    }
-
+    .cpd-btn-group { display: flex; justify-content: space-between; margin-top: 24px; padding-top: 15px; border-top: 1px solid #edf2f7; }
+    .cpd-btn { padding: 10px 22px; font-size: 0.95rem; font-weight: 700; border-radius: 4px; cursor: pointer; border: none; transition: background 0.2s; }
+    .cpd-btn-prev { background: #e2e8f0; color: #334155; }
+    .cpd-btn-prev:hover { background: #cbd5e1; }
+    .cpd-btn-next { background: #136357; color: #ffffff; }
+    .cpd-btn-next:hover { background: #0e4b42; }
+    .cpd-btn-submit { background-color: #136357; color: #ffffff; }
+    .cpd-btn-submit:disabled { background-color: #94a3b8; cursor: not-allowed; opacity: 0.7; }
+    .cpd-btn-submit:hover:not(:disabled) { background-color: #0e4b42; }
     @media (max-width: 768px) {
       .cpd-grid-2 { grid-template-columns: 1fr; }
       .cpd-grid-4 { grid-template-columns: 1fr 1fr; }
@@ -320,100 +230,157 @@
 
 <body class="smoothscroll text-size" id="corpo_pagina">
   <div id="wrapper">
-    <!-- Header FMUSP -->
+    <!-- VLibras -->
+    <div vw class="enabled hidden-xs hidden-sm">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+    <!-- Redes Sociais Sticky -->
+    <div class="sticky-container hide_mobile">
+      <ul id="social-media" class="sticky">
+        <li><a href="https://www.facebook.com/museuhistoricodafmusp" target="_blank"><img width="32" height="32" alt="" src="/fmusp/assets/img/fb1.png" /><p>Facebook</p></a></li>
+        <li><a href="https://twitter.com/MuseuHistorico" target="_blank"><img width="32" height="32" alt="" src="/fmusp/assets/img/tw1.png" /><p>Twitter</p></a></li>
+        <li><a href="https://www.instagram.com/museu_fmusp" target="_blank"><img width="32" height="32" alt="" src="/fmusp/assets/img/instagram.jpg" /><p>Instagram</p></a></li>
+        <li><a href="https://www.youtube.com/channel/UC7r7kZ04Kp_hvalUn0m-TcQ" target="_blank"><img width="32" height="32" alt="" src="/fmusp/assets/img/youtube.jpg" /><p>YouTube</p></a></li>
+      </ul>
+    </div>
+
+    <!-- Top Bar Institucional -->
     <header id="topBar">
       <div class="container">
         <a class="logo" href="/fmusp/portal">
-          <img src="/fmusp/assets/images/LOGO OFICIAL_fmusp_oficial_2017-04.svg" height="135" alt="" style="max-width: 230px; margin-top:25px; margin-bottom:25px; margin-left: -18px;" />
+          <img src="/fmusp/assets/images/LOGO OFICIAL_fmusp_oficial_2017-04.svg" height="135" alt="FMUSP" style="max-width: 230px; margin-top:25px; margin-bottom:25px; margin-left: -18px;" />
         </a>
+        <div id="barMain" style="margin-right:15px; width:50%" class="hide_mobile">
+          <nav class="nav-second" style="float:right; margin-top:10px;">
+            <ul class="nav nav-pills nav-second">
+              <li><a style="padding: 5px 3px !important;" href="#" id="texto-grande" title="Aumentar Texto" class="social"><i class="fa fa-font fa-lg"></i></a></li>
+              <li><a style="padding: 5px 3px !important;" href="#" id="texto-pequeno" title="Diminuir Texto" class="social"><i class="fa fa-font"></i></a></li>
+              <li><a style="padding: 5px 2px !important; margin-right: 15px !important;" href="#" id="auto-contraste" onclick="auto_contraste();" title="Auto-contraste" class="social"><i class="fa fa-eye fa-lg"></i></a></li>
+              <li><a href="/fmusp/portal"><i class="fa fa-angle-right"></i> <b>HOME</b></a></li>
+              <li><a href="https://intranet.fm.usp.br"><i class="fa fa-angle-right"></i> INTRANET</a></li>
+              <li><a href="/en"><img src="/fmusp/assets/images/ico-flag-usa.png" alt="" /></a></li>
+            </ul>
+          </nav>
+          <form id="busca1" class="search" method="get" action="/fmusp/portal/buscar-por/">
+            <input type="hidden" id="conexao_hotsite" name="conexao_hotsite" value="11">
+            <input type="hidden" id="dominio_site" name="dominio_site" value="museu">
+            <input type="text" class="form-control" id="buscaPalavra" name="palavra" placeholder="O que você procura?">
+            <button class="fa fa-search"></button>
+          </form>
+        </div>
       </div>
     </header>
 
+    <!-- Menu Superior Institucional -->
     <header id="topNav" style="background-color: #fafafa;">
       <div class="container">
-        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
-          <i class="fa fa-bars"></i>
-        </button>
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse"><i class="fa fa-bars"></i></button>
         <div class="navbar-collapse nav-main-collapse collapse">
           <nav class="nav-main">
             <ul id="topMain" class="nav nav-pills nav-main">
-              <li class="dropdown"><a href="/fmusp/portal">Institucional</a></li>
-              <li class="dropdown"><a href="/fmusp/ensino">Ensino</a></li>
-              <li class="dropdown"><a href="/fmusp/pesquisa">Pesquisa</a></li>
-              <li class="dropdown"><a href="http://fm.usp.br/museu">Museu Histórico</a></li>
+              <li class="dropdown"><a href="/fmusp/portal"><div>Institucional</div></a></li>
+              <li class="dropdown"><a href="/fmusp/ensino"><div>Ensino</div></a></li>
+              <li class="dropdown"><a href="/fmusp/pesquisa"><div>Pesquisa</div></a></li>
+              <li class="dropdown active7"><a href="http://fm.usp.br/museu"><div>Museu Histórico</div></a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
 
-    <!-- ÁREA DE CONTEÚDO PRINCIPAL -->
+    <!-- CORPO PRINCIPAL -->
     <section class="nopadding-bottom">
       <div class="container margin-top60">
         <div class="row">
           
-          <!-- SIDEBAR -->
+          <!-- SIDEBAR DE NAVEGAÇÃO DO MUSEU -->
           <div class="col-md-3">
             <div id="sidebar-nav">
               <div class="panel list-group">
                 <a href="/museu" class="list-group-item active">Home</a>
                 <a class="list-group-item menu_link"><i class="glyphicon glyphicon-chevron-down float-right" style="color: #006848 !important;"></i> O Museu</a>
                 <div class="sublinks">
-                  <a href="/museu/o-museu/missao-visao-valores" class="list-group-item small">Missão, Visão e Valores</a>
+                  <a href="/museu/o-museu/missao-visao-valores" class="list-group-item small">Missao ❍ Visao ❍ Valores</a>
                   <a href="/museu/o-museu/historico" class="list-group-item small">Histórico</a>
                   <a href="/museu/o-museu/equipe" class="list-group-item small">Equipe</a>
                   <a href="/museu/o-museu/parcerias" class="list-group-item small">Parcerias</a>
                 </div>
-                
+
+                <a class="list-group-item menu_link"><i class="glyphicon glyphicon-chevron-down float-right" style="color: #006848 !important;"></i> Visitas</a>
+                <div class="sublinks">
+                  <a href="/museu/visitas/educativo" class="list-group-item small">Educativo</a>
+                  <a href="/museu/visitas/agendamento-de-grupos" class="list-group-item small">Agendamento de grupos</a>
+                  <a href="/museu/visitas/acessibilidade" class="list-group-item small">Acessibilidade</a>
+                </div>
+
+                <a href="/museu/portal/exposicoes" class="list-group-item">Exposições</a>
+
                 <a class="list-group-item menu_link"><i class="glyphicon glyphicon-chevron-down float-right" style="color: #006848 !important;"></i> Acervo e Pesquisa</a>
                 <div class="sublinks" style="display:block;">
                   <a href="/museu/acervo-e-pesquisa/guia-do-acervo" class="list-group-item small">Guia do acervo</a>
                   <a href="/museu/acervo-e-pesquisa/agendamento-de-pesquisa-e-protocolos-de-bioseguranca" id="linkAcessoSide" class="list-group-item small">Acesso e Reprodução</a>
+                  <!-- O link Licenciamento Comercial é inserido aqui via script -->
                   <a href="/museu/acervo-e-pesquisa/sobre-o-acervo" class="list-group-item small">Sobre o acervo</a>
                   <a href="/museu/acervo/doacao-de-acervo" id="linkDoacaoSide" class="list-group-item small">Doação de acervo</a>
                 </div>
 
-                <a href="/museu/portal/exposicoes" class="list-group-item">Exposições</a>
+                <a class="list-group-item menu_link"><i class="glyphicon glyphicon-chevron-down float-right" style="color: #006848 !important;"></i> Conservação e Restauro</a>
+                <div class="sublinks">
+                  <a href="/museu/conservacao-e-restauro/conservacao" class="list-group-item small">Conservação</a>
+                  <a href="/museu/conservacao-e-restauro/colecao-ceroplastica" class="list-group-item small">Coleção Ceroplástica</a>
+                </div>
+
                 <a href="/museu/portal/eventos" class="list-group-item">Eventos</a>
               </div>
             </div>
           </div>
 
-          <!-- COLUNA CENTRAL -->
+          <!-- COLUNA CENTRAL DE CONTEÚDO -->
           <div class="col-md-9" id="colunaPrincipal">
-            <div id="conteudoPadraoHome">
-              <h2>Venha conhecer o Museu Histórico da FMUSP</h2>
-              <p align="justify">Quer conhecer a nossa atual exposição "A pele enferma: Augusto Esteves e seu museu de cera"?<br></p>
-              <p>O Museu Histórico da FMUSP está aberto de segunda a sexta-feira das 08h00 às 17h00. A entrada é gratuita e o agendamento prévio só é necessário para grupos formados por mais de 15 pessoas.&nbsp;<br></p>
-              <p><b>Endereço</b>: Avenida Dr. Arnaldo, 455, Cerqueira César - São Paulo (Em frente ao Metrô Clínicas - Linha 2 - Verde).<br></p>
-              <p><b>Telefone</b>: (11) 3061-7249<br></p>
-              <p><b>E-mail</b>: museu.historico@fm.usp.br</p>
+            
+            <div id="conteudoDestaqueHome">
+              <div class="col-md-12 margin-top20 nopadding">
+                <h2>Venha conhecer o Museu Histórico da FMUSP</h2>
+                <div>
+                  <p align="justify">Quer conhecer a nossa atual exposição "A pele enferma: Augusto Esteves e seu museu de cera"?</p>
+                  <p>O Museu Histórico da FMUSP está aberto de segunda a sexta-feira das 08h00 às 17h00. A entrada é gratuita e o agendamento prévio só é necessário para grupos formados por mais de 15 pessoas.</p>
+                  <p><b>Endereço</b>: Avenida Dr. Arnaldo, 455, Cerqueira César - São Paulo (Em frente ao Metrô Clínicas - Linha 2 - Verde).</p>
+                  <p><b>Telefone</b>: (11) 3061-7249</p>
+                  <p><b>E-mail</b>: museu.historico@fm.usp.br</p>
+                </div>
+              </div>
             </div>
-          </div>
 
+            <!-- CONTAINER PARA OS FORMULÁRIOS ELETRÔNICOS -->
+            <div id="cpdFormRoot"></div>
+
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER INSTITUCIONAL OFICIAL DO MUSEU -->
     <footer id="footer">
       <div class="copyright">
         <div class="container text-center fsize14">
           <b>Museu Histórico “Prof. Carlos da Silva Lacaz”</b><br>
-          Prédio da FMUSP • Av. Dr. Arnaldo, 455 • 4º andar • sala 4306<br>
-          Cerqueira César • São Paulo • Brasil • 01246 903<br>
-          <a href="mailto:museu.historico@fm.usp.br" style="color:#00C7B1;">museu.historico@fm.usp.br</a><br>
-          55 11 3061 7249
+          Faculdade de Medicina da Universidade de São Paulo<br>
+          Prédio da FMUSP • Av. Dr. Arnaldo, 455 • 4º andar • sala 4306 • Cerqueira César • São Paulo - SP • CEP: 01246-903<br>
+          <a href="mailto:museu.historico@fm.usp.br" style="color:#00C7B1;">museu.historico@fm.usp.br</a> • Tel.: 55 11 3061-7249
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- SCRIPT DE INJEÇÃO, NAVEGAÇÃO WIZARD E VALIDAÇÃO DOS TERMOS -->
-  <script>
+  <!-- JAVASCRIPT: NAVEGAÇÃO, WIZARD E VALIDAÇÃO ESTRITA -->
+  <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function() {
 
-      // 1. Injeta "Licenciamento Comercial" imediatamente acima de "Sobre o acervo"
+      // Injeção de "Licenciamento Comercial" acima de "Sobre o acervo"
       const linksMenu = Array.from(document.querySelectorAll('#sidebar-nav a'));
       const sobreAcervoItem = linksMenu.find(el => el.textContent.trim().toLowerCase().includes('sobre o acervo'));
       if (sobreAcervoItem && !document.getElementById('linkLicenciamentoMenu')) {
@@ -429,7 +396,7 @@
         });
       }
 
-      // 2. Eventos nos links da barra lateral
+      // Gatilhos da barra lateral
       const linkAcesso = document.getElementById('linkAcessoSide');
       if (linkAcesso) {
         linkAcesso.addEventListener('click', function(e) {
@@ -446,10 +413,10 @@
         });
       }
 
-      // 3. Preparação do container central
+      // Preparação da área central
       function prepararAreaCentral() {
-        const padrao = document.getElementById('conteudoPadraoHome');
-        if (padrao) padrao.style.display = 'none';
+        const homeDestaque = document.getElementById('conteudoDestaqueHome');
+        if (homeDestaque) homeDestaque.style.display = 'none';
 
         let root = document.getElementById('cpdFormRoot');
         if (root) {
@@ -462,7 +429,7 @@
         return root;
       }
 
-      // 4. Renderizador de Módulos
+      // Renderizador de módulos
       window.renderizarModulo = function(tipo) {
         const root = prepararAreaCentral();
         const card = document.createElement('div');
@@ -481,17 +448,18 @@
       };
 
       // =======================================================================
-      // MÓDULO 1: DOAÇÃO DE ACERVO (SEÇÃO 2 DO DOCUMENTO)
+      // MÓDULO 1: TERMO DE DOAÇÃO DE ACERVO
       // =======================================================================
       function obterTemplateDoacao() {
         return `
-          <h2 class="cpd-header-title">Centro de Pesquisa e Documentação</h2>
+          <h2 class="cpd-header-title">Museu Histórico "Prof. Carlos da Silva Lacaz" — FMUSP</h2>
+          <div class="cpd-header-sector">Centro de Pesquisa e Documentação (CPDoc)</div>
           <h3 class="cpd-header-subtitle">Termo de Doação de Acervo Cultural</h3>
           <div class="cpd-header-desc">
-            Especificação executiva para doação, transferência plena de propriedade e custódia física de bens culturais ao MHFMUSP (Artigo 10 da Medida Provisória nº 2.200-2/2001 e Lei nº 11.904/2009).
+            Procedimento eletrônico para doação, transferência plena de propriedade e custódia física de bens ao Museu Histórico da FMUSP (Artigo 10 da Medida Provisória nº 2.200-2/2001 e Estatuto de Museus — Lei Federal nº 11.904/2009).
           </div>
 
-          <!-- Wizard Nav (6 Etapas) -->
+          <!-- Stepper Nav (6 Etapas) -->
           <div class="cpd-wizard-nav" id="wizNavDoacao">
             <div class="cpd-wizard-step active" data-step="1"><span class="cpd-step-number">1</span> Identificação</div>
             <div class="cpd-wizard-step" data-step="2"><span class="cpd-step-number">2</span> Caracterização</div>
@@ -501,7 +469,7 @@
             <div class="cpd-wizard-step" data-step="6"><span class="cpd-step-number">6</span> Leitura & Aceite</div>
           </div>
 
-          <form id="formDoacao" onsubmit="event.preventDefault(); alert('Proposta de doação submetida.');">
+          <form id="formDoacao" onsubmit="event.preventDefault(); alert('Proposta de doação submetida com sucesso ao Museu Histórico da FMUSP.');">
             
             <!-- Etapa 1: Identificação do Doador -->
             <div class="cpd-step-pane active" data-step="1">
@@ -615,7 +583,7 @@
                     <textarea rows="2"></textarea>
                   </div>
                   <div class="cpd-field cpd-grid-full">
-                    <label>Registro Fotográfico Inicial do Bem (Mínimo de 3 fotografias: vista frontal, posterior e marcas/danos; máx. 15 MB) *</label>
+                    <label>Registro Fotográfico Inicial do Bem (Mínimo de 3 fotografias: frontal, posterior e marcas/danos; máx. 15 MB) *</label>
                     <input type="file" accept=".jpg,.jpeg,.png" multiple required onchange="window.validarQtdFotos(this, 3, 'infoFotosDoacao')" />
                     <small id="infoFotosDoacao" style="color:#64748b;">Mínimo obrigatório de 3 fotografias em alta nitidez.</small>
                   </div>
@@ -735,9 +703,9 @@
               <div class="cpd-section-box">
                 <h3>Etapa 6: Leitura do Termo, Aceite e Assinatura Eletrônica</h3>
                 
-                <!-- Container de Leitura Obrigatório (Secção 2.2) -->
+                <!-- Minuta Integral (Secção 2.2) -->
                 <div class="cpd-termo-container" id="termoScrollDoacao" onscroll="window.monitorarScroll(this, 'Doacao')">
-                  <p style="text-align:center;"><b>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc)<br>FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO</b></p>
+                  <p style="text-align:center;"><b>UNIVERSIDADE DE SÃO PAULO — FACULDADE DE MEDICINA<br>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>Centro de Pesquisa e Documentação (CPDoc)</b></p>
                   <p style="text-align:center; font-weight:bold;">TERMO DE DOAÇÃO DE ACERVO CULTURAL<br><span style="font-size:0.8rem; font-weight:normal;">(Nativamente Digital — Validação Eletrônica Plena nos termos do Art. 10 da MP nº 2.200-2/2001)</span></p>
                   <p>Pelo presente Termo de Doação de Acervo, doravante denominado simplesmente "Termo", de um lado o(a) DOADOR(A), devidamente identificado(a) e qualificado(a) no sistema eletrônico de registro conforme os dados transmitidos no preenchimento do formulário online preliminar; e, de outro lado, o MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" DA FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO, doravante denominado "Museu" ou "Donatário", unidade integrante da estrutura da Universidade de São Paulo (USP) — autarquia estadual de regime especial dotada de personalidade jurídica de direito público interno, inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, regida por seu Estatuto (Resolução USP nº 3.641/1988) e por seu Regimento Geral (Resolução USP nº 3.745/1990), com sede na Cidade de São Paulo, Capital do Estado, sujeito ao regime do Estatuto de Museus (Lei Federal nº 11.904/2009) e ao Decreto Federal nº 8.124/2013, celebram o presente negócio jurídico sob as cláusulas e condições seguintes:</p>
                   <h4>CLÁUSULA 1 – DO OBJETO</h4>
@@ -745,7 +713,7 @@
                   <h4>CLÁUSULA 2 – DA PROVENIÊNCIA, TITULARIDADE E RESPONSABILIDADE DO DOADOR</h4>
                   <p>O Doador atesta, sob as penalidades cíveis e criminais cabíveis, que é o legítimo proprietário e senhor do bem doado, ou detém plenos e comprovados poderes de representação de espólio ou instituição proprietária, encontrando-se o referido bem plenamente livre e desembaraçado de quaisquer ônus, gravames reais, penhoras, litígios judiciais ou extrajudiciais, reivindicações de herdeiros ou disputas de terceiros. O Doador responsabiliza-se integralmente pela exatidão e idoneidade da cadeia de custódia e das declarações de proveniência informadas, isentando a Universidade de São Paulo e o Museu de qualquer solidariedade jurídica por vícios de titularidade anteriores.</p>
                   <h4>CLÁUSULA 3 – DA TRIAGEM, DA INCORPORAÇÃO E DO TOMBAMENTO MUSEOLÓGICO</h4>
-                  <p>A entrega ou envio da proposta de doação não gera vinculação imediata de acolhimento compulsório pelo Museu. A efetiva incorporação do Bem subordina-se à triagem técnica realizada pela Curadoria do MHFMUSP/CPDoc, que aferirá a compatibilidade do item com seu Plano Museológico, sua vocação temática histórico-médica e a ausência de riscos insanáveis de biossegurança. Uma vez emitido o laudo de aceitação curatorial, o processo será submetido à instância colegiada competente da Faculdade de Medicina da USP (Comissão de Orçamento e Patrimônio e/ou Congregação), conforme preceitua o Regimento Geral da USP para aceitação de bens móveis por unidades universitárias. Aprovada formalmente a incorporação, o Bem será registrado no Livro Oficial de Tombo do Museu, recebendo número de inventário patrimonial definitivo e integrando o patrimônio público cultural do Estado de São Paulo sob salvaguarda da USP.</p>
+                  <p>A entrega ou envio da proposta de doação não gera vinculação imediata de acolhimento compulsório pelo Museu. A efetiva incorporação do Bem subordina-se à triagem técnica realizada pela Curadoria do Museu Histórico da FMUSP, por meio de sua equipe técnica do Centro de Pesquisa e Documentação (CPDoc), que aferirá a compatibilidade do item com seu Plano Museológico, sua vocação temática histórico-médica e a ausência de riscos insanáveis de biossegurança. Uma vez emitido o laudo de aceitação curatorial, o processo será submetido à instância colegiada competente da Faculdade de Medicina da USP (Comissão de Orçamento e Patrimônio e/ou Congregação), conforme preceitua o Regimento Geral da USP para aceitação de bens móveis por unidades universitárias. Aprovada formalmente a incorporação, o Bem será registrado no Livro Oficial de Tombo do Museu, recebendo número de inventário patrimonial definitivo e integrando o patrimônio público cultural do Estado de São Paulo sob salvaguarda da USP.</p>
                   <h4>CLÁUSULA 4 – DA GESTÃO, SALVAGUARDA E CONSERVAÇÃO PREVENTIVA</h4>
                   <p>A partir do tombamento e da entrega física definitiva do Bem, este passará a integrar o fundo documental e museológico institucional, ficando inteiramente subordinado às políticas de conservação preventiva, controle ambiental, higienização, restauração, acondicionamento, pesquisa, expografia e difusão pública do Museu. O Donatário reserva-se a autoridade curatorial exclusiva para deliberar sobre localização em reserva técnica, empréstimo para mostras e formas de comunicação ao público, observadas, na medida da razoabilidade técnica, eventuais restrições declaradas pelo Doador no formulário online e formalmente aceitas no ato da incorporação.</p>
                   <h4>CLÁUSULA 5 – DA PROPRIEDADE MATERIAL E DOS DIREITOS AUTORAIS</h4>
@@ -802,17 +770,18 @@
       }
 
       // =======================================================================
-      // MÓDULO 2: ACESSO E REPRODUÇÃO (SEÇÃO 3 DO DOCUMENTO)
+      // MÓDULO 2: TERMO PARA ACESSO E REPRODUÇÃO DE ACERVO
       // =======================================================================
       function obterTemplateAcesso() {
         return `
-          <h2 class="cpd-header-title">Centro de Pesquisa e Documentação</h2>
+          <h2 class="cpd-header-title">Museu Histórico "Prof. Carlos da Silva Lacaz" — FMUSP</h2>
+          <div class="cpd-header-sector">Centro de Pesquisa e Documentação (CPDoc)</div>
           <h3 class="cpd-header-subtitle">Termo para Acesso e Reprodução de Acervo</h3>
           <div class="cpd-header-desc">
-            Fundamentado nas Leis nº 11.904/2009, nº 12.527/2011, nº 9.610/1998 e nº 13.709/2018.
+            Fundamentado no Estatuto de Museus (Lei nº 11.904/2009), na Lei de Acesso à Informação (Lei nº 12.527/2011), na Lei de Direitos Autorais (Lei nº 9.610/1998) e na LGPD (Lei nº 13.709/2018).
           </div>
 
-          <!-- Wizard Nav (5 Etapas) -->
+          <!-- Stepper Nav (5 Etapas) -->
           <div class="cpd-wizard-nav" id="wizNavAcesso">
             <div class="cpd-wizard-step active" data-step="1"><span class="cpd-step-number">1</span> Solicitante</div>
             <div class="cpd-wizard-step" data-step="2"><span class="cpd-step-number">2</span> Finalidade & CEP</div>
@@ -821,7 +790,7 @@
             <div class="cpd-wizard-step" data-step="5"><span class="cpd-step-number">5</span> Compromisso & Aceite</div>
           </div>
 
-          <form id="formAcesso" onsubmit="event.preventDefault(); alert('Solicitação enviada.');">
+          <form id="formAcesso" onsubmit="event.preventDefault(); alert('Solicitação de acesso enviada com sucesso ao Centro de Pesquisa e Documentação do Museu.');">
             
             <!-- Etapa 1: Cadastro do Pesquisador / Solicitante -->
             <div class="cpd-step-pane active" data-step="1">
@@ -1039,24 +1008,25 @@
                   </select>
                 </div>
 
+                <!-- Citação Institucional Corrigida Rigorosamente -->
                 <div class="cpd-field">
-                  <label>Reconhecimento do Crédito Institucional (Forma padrão de citação):</label>
+                  <label>Reconhecimento do Crédito Institucional Obrigatório (Forma padrão de citação):</label>
                   <div class="cpd-citation-preview">
-                    "Acervo do Museu Histórico Prof. Carlos da Silva Lacaz / Centro de Pesquisa e Documentação da Faculdade de Medicina da USP (MHFMUSP). Item nº [Tombo]"
+                    Acervo do Museu Histórico "Prof. Carlos da Silva Lacaz" da Faculdade de Medicina da Universidade de São Paulo (MHFMUSP) — Centro de Pesquisa e Documentação (CPDoc). Código de Tombamento/Localização: [Número correspondente]
                   </div>
                 </div>
 
-                <!-- Container de Leitura Obrigatório (Secção 3.2) -->
+                <!-- Minuta Integral (Secção 3.2) -->
                 <div class="cpd-termo-container" id="termoScrollAcesso" onscroll="window.monitorarScroll(this, 'Acesso')">
-                  <p style="text-align:center;"><b>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc)<br>FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO</b></p>
+                  <p style="text-align:center;"><b>UNIVERSIDADE DE SÃO PAULO — FACULDADE DE MEDICINA<br>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>Centro de Pesquisa e Documentação (CPDoc)</b></p>
                   <p style="text-align:center; font-weight:bold;">TERMO PARA ACESSO E REPRODUÇÃO DE ACERVO HISTÓRICO<br><span style="font-size:0.8rem; font-weight:normal;">(Nativamente Digital — Fundamentado nas Leis nº 11.904/2009, nº 12.527/2011, nº 9.610/1998 e nº 13.709/2018)</span></p>
-                  <p>Pelo presente Termo para Acesso e Reprodução de Acervo, doravante "Termo", de um lado o(a) PESQUISADOR(A)/SOLICITANTE, devidamente identificado(a) e registrado(a) no sistema eletrônico de atendimento do Museu a partir das declarações transmitidas na Parte A deste ambiente web; e, de outro lado, o MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" DA FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO, doravante "Museu", integrante da Universidade de São Paulo (USP), autarquia estadual de regime especial inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, com sede na Comarca da Capital do Estado de São Paulo, na qualidade de instituição custodiante e gestora do acervo museológico e documental sob sua guarda, celebram o presente instrumento com base nas seguintes cláusulas e condições:</p>
+                  <p>Pelo presente Termo para Acesso e Reprodução de Acervo, doravante "Termo", de um lado o(a) PESQUISADOR(A)/SOLICITANTE, devidamente identificado(a) e registrado(a) no sistema eletrônico de atendimento do Museu a partir das declarações transmitidas no formulário eletrônico preliminar; e, de outro lado, o MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" DA FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO, doravante "Museu", integrante da Universidade de São Paulo (USP), autarquia estadual de regime especial inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, com sede na Comarca da Capital do Estado de São Paulo, na qualidade de instituição custodiante e gestora do acervo museológico e documental sob sua guarda, por meio de seu Centro de Pesquisa e Documentação (CPDoc), celebram o presente instrumento com base nas seguintes cláusulas e condições:</p>
                   <h4>CLÁUSULA 1 – DO OBJETO</h4>
                   <p>O presente Termo estabelece as condições de franqueamento de acesso físico, manuseio para consulta in loco e/ou fornecimento de reproduções digitais de bens, documentos textuais, fotografias, prontuários históricos ou peças tridimensionais integrantes do acervo sob a custódia do Museu, estritamente para a consecução da pesquisa ou finalidade declarada na etapa de cadastro.</p>
                   <h4>CLÁUSULA 2 – DAS CONDIÇÕES GERAIS E DAS RESTRIÇÕES DE SALVAGUARDA</h4>
                   <p>O acesso ao acervo do Museu subordinar-se-á, em qualquer modalidade, ao estado de integridade física dos suportes e às prioridades do cronograma curatorial. O Museu reserva-se o direito de restringir, retardar ou negar motivadamente a consulta direta a peças com fragilidades estruturais acentuadas, suportes em restauro, itens com cláusula restritiva estipulada pelo doador originário, ou fundos documentais que demandem tratamento prévio de biossegurança ou higienização. Em relação a documentos que contenham dados de saúde e histórico clínico de terceiros, a consulta subordina-se à apresentação de protocolo ou aprovação formal de Comitê de Ética em Pesquisa (CEP/CONEP), sempre que aplicável.</p>
                   <h4>CLÁUSULA 3 – DA CONSULTA PRESENCIAL (IN LOCO) E REGRAS DE MANUSEIO</h4>
-                  <p>A consulta nas dependências do CPDoc dar-se-á em data e horário previamente confirmados pela equipe técnica do Museu. Durante a sessão, o Solicitante obriga-se a:<br>
+                  <p>A consulta nas dependências do Centro de Pesquisa e Documentação (CPDoc) dar-se-á em data e horário previamente confirmados pela equipe técnica do Museu. Durante a sessão, o Solicitante obriga-se a:<br>
                   a) Apresentar documento de identificação oficial original com foto no ingresso à sala de consulta;<br>
                   b) Submeter-se rigorosamente às normas de conservação preventiva, operando obrigatoriamente com o uso de luvas (nitrílicas ou de algodão), suportes de espuma, pesos de chumbo e demais instrumentos de apoio fornecidos pela equipe técnica;<br>
                   c) Abster-se do porte de canetas de tinta, líquidos, alimentos, bolsas ou mochilas no ambiente de salvaguarda, sendo admitido unicamente o uso de lápis grafite, folhas avulsas e computador portátil;<br>
@@ -1067,7 +1037,7 @@
                   <p>A disponibilização das reproduções pelo Museu não implica, em hipótese alguma, outorga, licença ou transferência de direitos autorais de terceiros eventualmente incidentes sobre as obras consultadas (autores de textos, médicos ilustradores, fotógrafos ou herdeiros), cuja proteção jurídica rege-se de forma autônoma pela Lei nº 9.610/1998. Incumbe com exclusividade ao Solicitante identificar, contatar e colher as anuências necessárias junto aos respectivos titulares de direitos morais e patrimoniais de terceiros, eximindo o Museu e a Universidade de São Paulo de quaisquer demandas, cobranças ou reivindicações indenizatórias advindas da publicação ou veiculação da obra.</p>
                   <h4>CLÁUSULA 6 – DO CRÉDITO INSTITUCIONAL OBRIGATÓRIO (CITAÇÃO)</h4>
                   <p>Em todo e qualquer trabalho, publicação impressa ou eletrônica, comunicação em congresso, tese, dissertação ou exposição em que figurarem imagens ou citações textuais originadas do acervo consultado, o Solicitante assume a obrigação inegociável de atribuir o devido crédito institucional ao Museu, adotando a seguinte forma padrão de citação:<br>
-                  "Acervo do Museu Histórico 'Prof. Carlos da Silva Lacaz' da Faculdade de Medicina da Universidade de São Paulo (MHFMUSP / CPDoc). Código de Tombamento/Localização: [Número correspondente]".</p>
+                  "Acervo do Museu Histórico 'Prof. Carlos da Silva Lacaz' da Faculdade de Medicina da Universidade de São Paulo (MHFMUSP) — Centro de Pesquisa e Documentação (CPDoc). Código de Tombamento/Localização: [Número correspondente]".</p>
                   <h4>CLÁUSULA 7 – DA TAXATIVA VEDAÇÃO AO USO COMERCIAL NÃO AUTORIZADO</h4>
                   <p>É terminantemente proibido ao Solicitante utilizar, ceder, sublicenciar, comercializar ou alienar qualquer das imagens, cópias, documentos ou transcrições obtidas sob a vigência deste Termo para finalidades econômicas, comerciais, publicitárias, de merchandising ou de promoção mercadológica de produtos ou serviços. A exploração comercial de imagens do acervo do Museu exige, compulsoriamente, processo específico e apartado regido pelo "Termo de Autorização e Licenciamento para Uso Comercial de Acervo" do MHFMUSP, o qual fixa regras de contrapartida onerosa e controles de licenciamento em conformidade com o patrimônio da USP.</p>
                   <h4>CLÁUSULA 8 – DA TUTELA DE DADOS SENSÍVEIS DE SAÚDE (LGPD)</h4>
@@ -1076,7 +1046,7 @@
                   <p>A inobservância comprovada das cláusulas do presente Termo — em especial a exploração comercial clandestina de imagens, a supressão do crédito institucional, a quebra de sigilo de dados sensíveis ou o dano físico a itens de acervo — acarretará ao Solicitante, de forma cumulativa e sem prejuízo das medidas judiciais cabíveis perante os juízos da Fazenda Pública e varas criminais:<br>
                   a) Revogação e suspensão sumária de todas as autorizações de pesquisa e reprodução concedidas;<br>
                   b) Obrigação de remoção e recolhimento imediato de publicações físicas ou conteúdos eletrônicos irregulares;<br>
-                  c) Bloqueio administrativo para novas pesquisas e consultas presenciais perante o MHFMUSP/CPDoc pelo prazo de até 5 (cinco) anos;<br>
+                  c) Bloqueio administrativo para novas pesquisas e consultas presenciais perante o Museu Histórico da FMUSP pelo prazo de até 5 (cinco) anos;<br>
                   d) Instauração de procedimento de responsabilização civil para ressarcimento de perdas e danos e danos morais coletivos à Universidade de São Paulo.</p>
                   <h4>CLÁUSULA 10 – DO APERFEIÇOAMENTO DIGITAL E FORO</h4>
                   <p>O presente Termo reputa-se aperfeiçoado e eficaz no exato instante de seu aceite eletrônico validado pela assinatura criptográfica de metadados no sistema web do Museu, nos termos do Art. 10 da MP nº 2.200-2/2001. As partes elegem as Varas da Fazenda Pública da Comarca da Capital de São Paulo para solucionar quaisquer questões contenciosas decorrentes da execução deste negócio jurídico.</p>
@@ -1099,7 +1069,7 @@
                   </label>
                   <label class="cpd-checkbox-row">
                     <input type="checkbox" class="chk-acesso" onchange="window.validarAceite('Acesso')" />
-                    <span>Obrigação de Crédito Institucional: Comprometo-me a inserir de maneira explícita o crédito institucional ao MHFMUSP/CPDoc em todas as publicações, divulgações ou telas onde o material venha a ser exibido.</span>
+                    <span>Obrigação de Crédito Institucional: Comprometo-me a inserir de maneira explícita o crédito institucional ao Museu Histórico da FMUSP (MHFMUSP) em todas as publicações, divulgações ou telas onde o material venha a ser exibido.</span>
                   </label>
                   <label class="cpd-checkbox-row">
                     <input type="checkbox" class="chk-acesso" onchange="window.validarAceite('Acesso')" />
@@ -1128,17 +1098,18 @@
       }
 
       // =======================================================================
-      // MÓDULO 3: LICENCIAMENTO COMERCIAL (SEÇÃO 4 DO DOCUMENTO)
+      // MÓDULO 3: TERMO DE LICENCIAMENTO COMERCIAL DE ACERVO
       // =======================================================================
       function obterTemplateLicenciamento() {
         return `
-          <h2 class="cpd-header-title">Centro de Pesquisa e Documentação</h2>
+          <h2 class="cpd-header-title">Museu Histórico "Prof. Carlos da Silva Lacaz" — FMUSP</h2>
+          <div class="cpd-header-sector">Centro de Pesquisa e Documentação (CPDoc)</div>
           <h3 class="cpd-header-subtitle">Termo de Licenciamento Comercial de Acervo</h3>
           <div class="cpd-header-desc">
-            Exploração econômica onerosa sob os termos da Lei nº 9.610/1998 e Resoluções da USP.
+            Exploração econômica onerosa sob os termos da Lei nº 9.610/1998 e Resoluções da Universidade de São Paulo.
           </div>
 
-          <!-- Wizard Nav (5 Etapas) -->
+          <!-- Stepper Nav (5 Etapas) -->
           <div class="cpd-wizard-nav" id="wizNavLic">
             <div class="cpd-wizard-step active" data-step="1"><span class="cpd-step-number">1</span> Solicitante</div>
             <div class="cpd-wizard-step" data-step="2"><span class="cpd-step-number">2</span> Projeto & Mockup</div>
@@ -1147,7 +1118,7 @@
             <div class="cpd-wizard-step" data-step="5"><span class="cpd-step-number">5</span> Termo & Aceite</div>
           </div>
 
-          <form id="formLic" onsubmit="event.preventDefault(); alert('Proposta vinculante submetida.');">
+          <form id="formLic" onsubmit="event.preventDefault(); alert('Proposta vinculante de licenciamento submetida para homologação da Diretoria da FMUSP.');">
             
             <!-- Etapa 1: Qualificação da Solicitante -->
             <div class="cpd-step-pane active" data-step="1">
@@ -1338,11 +1309,11 @@
               <div class="cpd-section-box">
                 <h3>Etapa 5: Leitura do Termo, Aceite e Formalização da Proposta</h3>
                 
-                <!-- Container de Leitura Obrigatório (Secção 4.2) -->
+                <!-- Minuta Integral (Secção 4.2) -->
                 <div class="cpd-termo-container" id="termoScrollLic" onscroll="window.monitorarScroll(this, 'Lic')">
-                  <p style="text-align:center;"><b>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc)<br>FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO</b></p>
+                  <p style="text-align:center;"><b>UNIVERSIDADE DE SÃO PAULO — FACULDADE DE MEDICINA<br>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>Centro de Pesquisa e Documentação (CPDoc)</b></p>
                   <p style="text-align:center; font-weight:bold;">TERMO DE AUTORIZAÇÃO E LICENCIAMENTO PARA USO COMERCIAL DE ACERVO<br><span style="font-size:0.8rem; font-weight:normal;">(Instrumento Apartado — Exploração Econômica Onerosa sob os termos da Lei nº 9.610/1998 e Resoluções da USP)</span></p>
-                  <p>Pelo presente Termo de Autorização e Licenciamento para Uso Comercial de Acervo, doravante "Termo", de um lado a empresa ou solicitante qualificado(a) na Parte A deste ambiente web, representada por seus diretores ou mandatários com poderes bastantes conforme documentação anexada, doravante denominada simplesmente "LICENCIADA"; e, de outro lado, a UNIVERSIDADE DE SÃO PAULO (USP), autarquia estadual de regime especial, inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, representada pelo Diretor da Faculdade de Medicina da Universidade de São Paulo (FMUSP) ou pelo Curador do MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" (MHFMUSP), na conformidade do Estatuto da USP (Resolução nº 3.641/1988) e de seu Regimento Geral (Resolução nº 3.745/1990), doravante "MUSEU" ou "LICENCIANTE", pactuam o presente contrato de licença de direitos nos termos das seguintes cláusulas:</p>
+                  <p>Pelo presente Termo de Autorização e Licenciamento para Uso Comercial de Acervo, doravante "Termo", de um lado a empresa ou solicitante qualificado(a) no formulário eletrônico preliminar, representada por seus diretores ou mandatários com poderes bastantes conforme documentação anexada, doravante denominada simplesmente "LICENCIADA"; e, de outro lado, a UNIVERSIDADE DE SÃO PAULO (USP), autarquia estadual de regime especial, inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, representada pelo Diretor da Faculdade de Medicina da Universidade de São Paulo (FMUSP) ou pelo Curador do MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" (MHFMUSP), na conformidade do Estatuto da USP (Resolução nº 3.641/1988) e de seu Regimento Geral (Resolução nº 3.745/1990), doravante "MUSEU" ou "LICENCIANTE", pactuam o presente contrato de licença de direitos nos termos das seguintes cláusulas:</p>
                   <h4>CLÁUSULA 1 – DO OBJETO DA LICENÇA</h4>
                   <p>Constitui objeto do presente instrumento a outorga, pelo Licenciante à Licenciada, de licença onerosa, restrita e não exclusiva de uso de reproduções digitais em alta definição de bem(ns) integrante(s) do acervo do Museu, individualizado(s) no formulário eletrônico preliminar, para utilização estritamente vinculada ao produto, suporte físico/digital, tiragem, território e prazos especificados na solicitação aprovada.</p>
                   <h4>CLÁUSULA 2 – DA NÃO EXCLUSIVIDADE E DA VEDAÇÃO À SUBLICENÇA</h4>
@@ -1376,7 +1347,7 @@
                 </div>
 
                 <div class="cpd-scroll-status" id="statusScrollLic">
-                  <span>Role o texto até o fim para desbloquear as declarações de aceite.</span>
+                  <span>Role o texto até o fim para desbloquear as declarações de aceite corporativo.</span>
                   <span id="scrollPctLic">0%</span>
                 </div>
 
@@ -1421,7 +1392,7 @@
       }
 
       // =======================================================================
-      // FUNÇÕES DE CONTROLE DE FLUXO (WIZARD, SCROLL, CONTADORES)
+      // CONTROLE DE FLUXO (WIZARD, SCROLL, CONTADORES E FOTOS)
       // =======================================================================
       const estados = {
         Doacao: { atual: 1, total: 6, scrollLido: false, totalChecks: 5 },
@@ -1473,7 +1444,7 @@
           estados[modulo].scrollLido = true;
           const status = document.getElementById(`statusScroll${modulo}`);
           status.className = 'cpd-scroll-status completed';
-          status.innerHTML = '<span>Leitura concluída. Declarações liberadas para seleção abaixo.</span><span>100%</span>';
+          status.innerHTML = '<span>Leitura concluída na íntegra. Declarações liberadas abaixo.</span><span>100%</span>';
 
           const box = document.getElementById(`boxChecks${modulo}`);
           box.style.pointerEvents = 'auto';
@@ -1515,6 +1486,17 @@
         r.style.display = (valor === 'remoto' || valor === 'ambas') ? 'block' : 'none';
       };
 
+    });
+  </script>
+
+  <!-- SCRIPTS LEGADOS DA PÁGINA FMUSP -->
+  <script type="text/javascript" src="/fmusp/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/fmusp/assets/js/scripts.js"></script>
+  <script type="text/javascript">
+    $(".sublinks").hide();
+    $(".menu_link").click(function () {
+      var $header =$(this);
+      var $content = $header.next();$content.slideToggle(400);
     });
   </script>
 </body>
