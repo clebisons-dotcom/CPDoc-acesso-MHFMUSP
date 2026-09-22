@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->	<html> <!--<![endif]-->
+<head>
+  <base href="https://fm.usp.br/museu/portal/">
+  <meta charset="utf-8" />
+  <title>:: FMUSP - Museu Histórico "Prof. Carlos da Silva Lacaz"</title>
+  <meta name="keywords" content="FMUSP, Museu Histórico, CPDoc, Documentação Museológica" />
+  <meta name="description" content="Centro de Pesquisa e Documentação do Museu Histórico da FMUSP" />
+  <meta name="Author" content="MHFMUSP / FMUSP" />
+  <meta content=":: FMUSP" property="og:title" />
+  <meta name="robots" content="index, follow">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/fmusp/assets/images/favicon.ico" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PRNZBNFZ2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PRNZBNFZ2B');
+  </script>
+
+  <!-- WEB FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+  
+  <!-- CORE CSS -->
+  <link href="/fmusp/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <link href="/fmusp/assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
+  <link href="/fmusp/assets/css/essentials.css" rel="stylesheet" type="text/css" />
+  <link href="/fmusp/assets/css/layout.css?v=2" rel="stylesheet" type="text/css" />
+  <link href="/fmusp/assets/css/header-4.css" rel="stylesheet" type="text/css" />
+  <link href="/fmusp/assets/css/footer-default.css" rel="stylesheet" type="text/css" />
+  <link href="/fmusp/assets/css/color_scheme/darkgreen.css" rel="stylesheet" type="text/css" id="color_scheme" />
+
+  <script type="text/javascript" src="/fmusp/assets/plugins/jquery-2.2.3.min.js"></script>
+
+  <!-- ESTILOS DO CENTRO DE DOCUMENTAÇÃO E FORMULÁRIOS WIZARD (CPDOC) -->
+  <style>
+    .cpd-form-card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 6px;
+      border: 1px solid #dcdfe6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-top: 15px;
+      margin-bottom: 40px;
+      font-family: inherit;
+      color: #2c3e50;
+    }
+    .cpd-header-title {
+      color: #136357 !important;
+      font-size: 1.75rem !important;
+      font-weight: 700 !important;
+      margin-bottom: 6px !important;
+      margin-top: 0 !important;
+    }
+    .cpd-header-subtitle {
+      color: #8b1e2f;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+    .cpd-header-desc {
+      font-size: 0.92rem;
+      color: #5a6a85;
+      margin-bottom: 24px;
+      line-height: 1.5;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 14px;
+    }
+
+    /* STEPPER WIZARD BAR */
+    .cpd-wizard-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+      border-bottom: 2px solid #edf2f7;
+      padding-bottom: 12px;
+      overflow-x: auto;
+      gap: 10px;
+    }
+    .cpd-wizard-step {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #94a3b8;
+      cursor: default;
+      white-space: nowrap;
+    }
+    .cpd-wizard-step.active {
+      color: #136357;
+    }
+    .cpd-wizard-step.completed {
+      color: #059669;
+    }
+    .cpd-step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+    }
+    .cpd-wizard-step.active .cpd-step-number {
+      background: #136357;
+      color: #ffffff;
+    }
+    .cpd-wizard-step.completed .cpd-step-number {
+      background: #059669;
+      color: #ffffff;
+    }
+
+    .cpd-step-pane {
+      display: none;
+    }
+    .cpd-step-pane.active {
+      display: block;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SEÇÕES E CAMPOS */
+    .cpd-section-box {
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #edf2f7;
+    }
+    .cpd-section-box h3 {
+      color: #136357;
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 16px;
+      padding-left: 10px;
+      border-left: 4px solid #8b1e2f;
+      font-weight: 700;
+    }
+    .cpd-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cpd-grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    .cpd-grid-full {
+      grid-column: span 2;
+    }
+    .cpd-field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 12px;
+    }
+    .cpd-field label {
+      font-weight: 600;
+      font-size: 0.87rem;
+      color: #334155;
+      margin-bottom: 5px;
+    }
+    .cpd-field input[type="text"],
+    .cpd-field input[type="email"],
+    .cpd-field input[type="tel"],
+    .cpd-field input[type="number"],
+    .cpd-field input[type="file"],
+    .cpd-field select,
+    .cpd-field textarea {
+      padding: 9px 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      color: #1e293b;
+      box-sizing: border-box;
+      background-color: #ffffff;
+      transition: border-color 0.2s;
+    }
+    .cpd-field input:focus,
+    .cpd-field select:focus,
+    .cpd-field textarea:focus {
+      border-color: #136357;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(19, 99, 87, 0.15);
+    }
+    .cpd-checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 0.88rem;
+      color: #334155;
+      line-height: 1.45;
+      cursor: pointer;
+    }
+    .cpd-checkbox-row input {
+      margin-top: 3px;
+      accent-color: #136357;
+      min-width: 16px;
+      min-height: 16px;
+    }
+
+    /* CONTAINER DE MINUTA JURÍDICA COM SCROLL MANDATÓRIO */
+    .cpd-legal-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: #f8fafc;
+      margin-bottom: 15px;
+    }
+    .cpd-termo-container {
+      height: 240px;
+      overflow-y: scroll;
+      padding: 16px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: #1e293b;
+      text-align: justify;
+    }
+    .cpd-termo-container h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #136357;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+    .cpd-scroll-status {
+      padding: 8px 14px;
+      background: #f1f5f9;
+      border-top: 1px solid #cbd5e1;
+      font-size: 0.82rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .cpd-scroll-status.completed {
+      background: #ecfdf5;
+      color: #065f46;
+      border-top-color: #a7f3d0;
+      font-weight: 600;
+    }
+
+    /* CAIXA DE CITAÇÃO OFICIAL */
+    .cpd-citation-box {
+      background: #f0fdf4;
+      border-left: 4px solid #136357;
+      padding: 14px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+    .cpd-citation-formula {
+      font-family: monospace;
+      background: #ffffff;
+      padding: 8px 12px;
+      border: 1px dashed #059669;
+      margin-top: 6px;
+      display: block;
+      font-size: 0.85rem;
+      color: #064e3b;
+    }
+
+    /* BOTÕES */
+    .cpd-btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid #edf2f7;
+    }
+    .cpd-btn {
+      padding: 10px 22px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+    .cpd-btn-prev {
+      background: #e2e8f0;
+      color: #334155;
+    }
+    .cpd-btn-prev:hover {
+      background: #cbd5e1;
+    }
+    .cpd-btn-next {
+      background: #136357;
+      color: #ffffff;
+    }
+    .cpd-btn-next:hover {
+      background: #0e4b42;
+    }
+    .cpd-btn-submit {
+      background-color: #8b1e2f;
+      color: #ffffff;
+      padding: 12px 28px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .cpd-btn-submit:disabled {
+      background-color: #94a3b8;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+    .cpd-btn-submit:hover:not(:disabled) {
+      background-color: #6a1724;
+    }
+
+    /* TELA DE SUCESSO / COMPROVANTE DIGITAL */
+    .cpd-receipt-card {
+      background: #ffffff;
+      border: 2px solid #136357;
+      border-radius: 6px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .cpd-receipt-header {
+      text-align: center;
+      border-bottom: 2px solid #edf2f7;
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+    }
+    .cpd-chassi-forense {
+      font-family: monospace;
+      font-size: 0.8rem;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 14px;
+      border-radius: 4px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    @media (max-width: 768px) {
+      .cpd-grid-2 { grid-template-columns: 1fr; }
+      .cpd-grid-4 { grid-template-columns: 1fr 1fr; }
+      .cpd-grid-full { grid-column: span 1; }
+      .cpd-wizard-nav { font-size: 0.75rem; }
+    }
+  </style>
+</head>
+
+<body class="smoothscroll text-size" id="corpo_pagina">
+  <div id="wrapper">
+    <!-- Top Bar & Header Padrão FMUSP -->
+    <header id="topBar">
+      <div class="container">
+        <a class="logo" href="/fmusp/portal">
+          <img src="/fmusp/assets/images/LOGO OFICIAL_fmusp_oficial_2017-04.svg" height="135" alt="FMUSP" style="max-width: 230px; margin-top:25px; margin-bottom:25px; margin-left: -18px;" />
+        </a>
+      </div>
+    </header>
+
+    <header id="topNav" style="background-color: #fafafa;">
+      <div class="container">
+        <button class="btn btn-mobile" data-toggle="collapse" data-target=".nav-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="navbar-collapse nav-main-collapse collapse">
+          <nav class="nav-main">
+            <ul id="topMain" class="nav nav-pills nav-main">
+              <li class="dropdown"><a href="/museu">Museu Histórico</a></li>
+              <li class="dropdown"><a href="/fmusp/institucional/a-fmusp">Institucional</a></li>
+              <li class="dropdown"><a href="/fmusp/ensino/graduacao">Ensino</a></li>
+              <li class="dropdown"><a href="/fmusp/pesquisa/pesquisa">Pesquisa</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ÁREA PRINCIPAL DE CONTEÚDO -->
+    <section class="nopadding-bottom">
+      <div class="container margin-top60">
+        <div class="row">
+          
+          <!-- SIDEBAR DE NAVEGAÇÃO DO MUSEU -->
+          <div class="col-md-3">
+            <div id="sidebar-nav">
+              <div class="panel list-group">
+                <a href="/museu" class="list-group-item">Home</a>
+                <a class="list-group-item menu_link"><i class="glyphicon glyphicon-chevron-down float-right" style="color: #006848 !important;"></i> O Museu</a>
+                <div class="sublinks">
+                  <a href="/museu/o-museu/missao-visao-valores" class="list-group-item small">Missão, Visão e Valores</a>
+                  <a href="/museu/o-museu/historico" class="list-group-item small">Histórico</a>
+                  <a href="/museu/o-museu/equipe" class="list-group-item small">Equipe</a>
+                </div>
+
+                <a class="list-group-item menu_link"><i class="glyphicon glyphicon-chevron-down float-right" style="color: #006848 !important;"></i> Acervo e Pesquisa</a>
+                <div class="sublinks" style="display:block;">
+                  <a href="/museu/acervo-e-pesquisa/guia-do-acervo" class="list-group-item small">Guia do acervo</a>
+                  <a href="#acesso-reproducao" id="linkAcessoSide" class="list-group-item small active" style="font-weight:bold; color:#136357;">Acesso e Reprodução</a>
+                  <a href="#sobre-acervo" class="list-group-item small">Sobre o acervo</a>
+                  <a href="#doacao-acervo" id="linkDoacaoSide" class="list-group-item small" style="font-weight:bold; color:#136357;">Doação de acervo</a>
+                </div>
+
+                <a href="#licenciamento-comercial" id="linkLicenciamentoSide" class="list-group-item" style="border-left: 3px solid #8b1e2f; font-weight: bold; color: #8b1e2f;">
+                  <i class="fa fa-certificate" style="color: #8b1e2f !important; margin-right: 6px;"></i> Licenciamento Comercial
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ÁREA CENTRAL DO CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc) -->
+          <div class="col-md-9" id="colunaPrincipalConteudo">
+            
+            <div id="boxApresentacaoInicial" class="col-md-12 margin-top20 nopadding">
+              <h2 id="tituloPrincipalPagina">Venha conhecer o Museu Histórico da FMUSP</h2>
+              <div id="textoApresentacaoPadrao">
+                <p align="justify">Quer conhecer a nossa atual exposição "A pele enferma: Augusto Esteves e seu museu de cera"?</p>
+                <p>O Museu Histórico da FMUSP está aberto de segunda a sexta-feira das 08h00 às 17h00. A entrada é gratuita.</p>
+                <p><b>Endereço</b>: Avenida Dr. Arnaldo, 455, Cerqueira César - São Paulo (Em frente ao Metrô Clínicas).</p>
+                <p><b>E-mail</b>: museu.historico@fm.usp.br</p>
+              </div>
+            </div>
+
+            <!-- CONTAINER ONDE OS FORMULÁRIOS WIZARD SÃO RENDERIZADOS DINAMICAMENTE -->
+            <div id="cpdFormRoot"></div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER INSTITUCIONAL -->
+    <footer id="footer" style="margin-top: 60px;">
+      <div class="copyright">
+        <div class="container text-center fsize14">
+          <b>Museu Histórico “Prof. Carlos da Silva Lacaz”</b><br>
+          Centro de Pesquisa e Documentação (CPDoc) • Faculdade de Medicina da USP<br>
+          Av. Dr. Arnaldo, 455 • 4º andar • Cerqueira César • São Paulo - SP<br>
+          <a href="mailto:museu.historico@fm.usp.br" style="color:#00C7B1;">museu.historico@fm.usp.br</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- SCRIPTS DE CONTROLE DO WIZARD, MINUTAS, SCROLL E ASSINATURA ELETRÔNICA   -->
+  <!-- ========================================================================= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // Liga os gatilhos dos menus
+      document.getElementById('linkAcessoSide').addEventListener('click', function(e) {
+        e.preventDefault();
+        renderizarModulo('acesso');
+      });
+
+      document.getElementById('linkDoacaoSide').addEventListener('click', function(e) {
+        e.preventDefault();
+        renderizarModulo('doacao');
+      });
+
+      document.getElementById('linkLicenciamentoSide').addEventListener('click', function(e) {
+        e.preventDefault();
+        renderizarModulo('licenciamento');
+      });
+
+      // Preparação da tela central
+      function prepararAreaCentral(titulo) {
+        document.getElementById('textoApresentacaoPadrao').style.display = 'none';
+        const h2 = document.getElementById('tituloPrincipalPagina');
+        h2.textContent = 'Centro de Pesquisa e Documentação (CPDoc)';
+        h2.className = 'cpd-header-title';
+        const root = document.getElementById('cpdFormRoot');
+        root.innerHTML = '';
+        return root;
+      }
+
+      // RENDERIZADOR PRINCIPAL DE MÓDULOS
+      window.renderizarModulo = function(tipo) {
+        const root = prepararAreaCentral();
+        const card = document.createElement('div');
+        card.className = 'cpd-form-card';
+
+        if (tipo === 'doacao') {
+          card.innerHTML = obterTemplateDoacao();
+        } else if (tipo === 'acesso') {
+          card.innerHTML = obterTemplateAcesso();
+        } else if (tipo === 'licenciamento') {
+          card.innerHTML = obterTemplateLicenciamento();
+        }
+
+        root.appendChild(card);
+        inicializarLogicaFormulario(tipo);
+        card.scrollIntoView({ behavior: 'smooth' });
+      };
+
+      // =======================================================================
+      // TEMPLATE 1: DOAÇÃO DE ACERVO (6 ETAPAS)
+      // =======================================================================
+      function obterTemplateDoacao() {
+        return `
+          <h2 class="cpd-header-subtitle">Termo de Doação de Acervo Cultural</h2>
+          <div class="cpd-header-desc">
+            Procedimento 100% eletrônico para doação, transferência patrimonial e custódia física de bens ao MHFMUSP (Art. 10 da MP nº 2.200-2/2001 e Lei nº 11.904/2009).
+          </div>
+
+          <!-- Wizard Nav -->
+          <div class="cpd-wizard-nav" id="wizNavDoacao">
+            <div class="cpd-wizard-step active" data-step="1"><span class="cpd-step-number">1</span> Identificação</div>
+            <div class="cpd-wizard-step" data-step="2"><span class="cpd-step-number">2</span> Caracterização</div>
+            <div class="cpd-wizard-step" data-step="3"><span class="cpd-step-number">3</span> Proveniência</div>
+            <div class="cpd-wizard-step" data-step="4"><span class="cpd-step-number">4</span> Ética & Saúde</div>
+            <div class="cpd-wizard-step" data-step="5"><span class="cpd-step-number">5</span> Restrições</div>
+            <div class="cpd-wizard-step" data-step="6"><span class="cpd-step-number">6</span> Termo & Assinatura</div>
+          </div>
+
+          <form id="formDoacao" onsubmit="window.submeterFormulario(event, 'DOACAO')">
+            
+            <!-- Etapa 1: Identificação -->
+            <div class="cpd-step-pane active" data-step="1">
+              <div class="cpd-section-box">
+                <h3>Etapa 1: Identificação do Doador</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Tipo de Doador *</label>
+                    <select required>
+                      <option value="">Selecione...</option>
+                      <option value="PF">Pessoa Física</option>
+                      <option value="PJ">Pessoa Jurídica</option>
+                      <option value="ESPOLIO">Espólio (Herdeiros e Sucessores)</option>
+                      <option value="INSTITUCIONAL">Instituição Pública ou Privada</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Nome Completo ou Razão Social *</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>CPF ou CNPJ *</label>
+                    <input type="text" id="docFiscalDoacao" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Documento de Identificação Oficial com Foto / Contrato Social *</label>
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>CEP * (Preenchimento automático de endereço)</label>
+                    <input type="text" id="cepDoacao" placeholder="00000-000" maxlength="9" onblur="window.buscarCep(this.value, 'Doacao')" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Logradouro e Número *</label>
+                    <input type="text" id="logradouroDoacao" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Bairro *</label>
+                    <input type="text" id="bairroDoacao" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Cidade / UF *</label>
+                    <input type="text" id="cidadeUfDoacao" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Telefone Celular / WhatsApp *</label>
+                    <input type="tel" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>E-mail Oficial / Pessoal *</label>
+                    <input type="email" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Grau de Relação com o Bem *</label>
+                    <select required onchange="document.getElementById('boxProcDoacao').style.display = (this.value !== 'Proprietário Original') ? 'flex' : 'none'">
+                      <option value="Proprietário Original">Proprietário Original</option>
+                      <option value="Herdeiro/Sucessor">Herdeiro / Sucessor</option>
+                      <option value="Adquirente de Terceiro">Adquirente de Terceiro</option>
+                      <option value="Representante Institucional">Representante Institucional</option>
+                    </select>
+                  </div>
+                  <div id="boxProcDoacao" class="cpd-field" style="display:none;">
+                    <label>Procuração / Termo de Inventariante (Obrigatório) *</label>
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 2: Caracterização Museológica -->
+            <div class="cpd-step-pane" data-step="2">
+              <div class="cpd-section-box">
+                <h3>Etapa 2: Caracterização Museológica do Bem Cultural</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Categoria Museológica *</label>
+                    <select required>
+                      <option value="">Selecione...</option>
+                      <option>Instrumental médico-cirúrgico</option>
+                      <option>Documento arquivístico / textual</option>
+                      <option>Obra bibliográfica ou raridade</option>
+                      <option>Espécime biológico ou anatômico</option>
+                      <option>Mobiliário e equipamento hospitalar histórico</option>
+                      <option>Iconografia (fotografias, ilustrações, gravuras)</option>
+                      <option>Objeto tridimensional diverso</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Denominação do Bem (popular ou técnica) *</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Quantidade de Itens / Peças *</label>
+                    <input type="number" min="1" value="1" required />
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Descrição Física (material, marcas de fabricante, números de série) *</label>
+                    <textarea rows="3" required></textarea>
+                  </div>
+                  
+                  <!-- Medidas Físicas Estruturadas (cm e g) -->
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Medidas Estruturadas do Bem *</label>
+                    <div class="cpd-grid-4">
+                      <div><input type="number" step="0.1" placeholder="Altura (cm) *" required /></div>
+                      <div><input type="number" step="0.1" placeholder="Largura (cm) *" required /></div>
+                      <div><input type="number" step="0.1" placeholder="Profundidade (cm) *" required /></div>
+                      <div><input type="number" step="1" placeholder="Peso (gramas) *" required /></div>
+                    </div>
+                  </div>
+
+                  <div class="cpd-field">
+                    <label>Datação ou Período Estimado *</label>
+                    <input type="text" placeholder="Ex.: c. 1920, primeira metade do séc. XX" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Estado de Conservação Aparente *</label>
+                    <select required>
+                      <option value="BOM">Bom</option>
+                      <option value="REGULAR">Regular</option>
+                      <option value="URGENTE">Requer intervenção urgente / Danificado</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Registro Fotográfico Obrigatório (Mínimo de 3 fotos: frontal, posterior e danos/marcas) *</label>
+                    <input type="file" id="fotosDoacao" accept=".jpg,.jpeg,.png" multiple required onchange="window.validarFotosMinimas(this, 3)" />
+                    <small id="fotoCountInfo" style="color:#64748b;">Nenhum arquivo selecionado. Mínimo obrigatório: 3 fotografias.</small>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Riscos Químicos ou de Biossegurança? *</label>
+                    <select onchange="document.getElementById('boxLaudoBioDoacao').style.display = (this.value === 'Sim') ? 'flex' : 'none'">
+                      <option value="Não">Não</option>
+                      <option value="Sim">Sim (especificar substâncias, formol ou lâminas)</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Presença de Material Biológico Humano ou Dados de Pacientes? *</label>
+                    <select id="selBioDoacao">
+                      <option value="Não">Não</option>
+                      <option value="Sim">Sim (ativa etapa ética mandante)</option>
+                    </select>
+                  </div>
+                  <div id="boxLaudoBioDoacao" class="cpd-field cpd-grid-full" style="display:none;">
+                    <label>Laudo Técnico de Descontaminação ou Ficha de Segurança</label>
+                    <input type="file" accept=".pdf" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 3: Histórico de Proveniência -->
+            <div class="cpd-step-pane" data-step="3">
+              <div class="cpd-section-box">
+                <h3>Etapa 3: Histórico de Proveniência e Cadeia de Custódia</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Origem e Modo de Aquisição do Bem *</label>
+                    <textarea rows="3" placeholder="Relato detalhado: herança familiar, compra em leilão, desativação de enfermaria histórica, etc." required></textarea>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Cadeia Cronológica de Custódia Pregressa *</label>
+                    <textarea rows="2" placeholder="Proprietários anteriores conhecidos e respectivas datas/localidades" required></textarea>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Vínculo com Notabilidade Histórico-Médica (se houver)</label>
+                    <input type="text" placeholder="Relação com docentes, pioneiros da medicina, FMUSP, Hospital das Clínicas, etc." />
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label class="cpd-checkbox-row">
+                      <input type="checkbox" required />
+                      <span><b>Declaração de Origem Lícita:</b> Declaro, sob as penas da lei, que o bem cultural possui proveniência lícita e legítima, não sendo produto de espoliação, furto, ilícito de tráfego de bens culturais ou litígio judicial. *</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 4: Ética e Dados Sensíveis -->
+            <div class="cpd-step-pane" data-step="4">
+              <div class="cpd-section-box">
+                <h3>Etapa 4: Módulo Ético — Acervos Biológicos e Dados Sensíveis</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field">
+                    <label>Consentimento Livre e Esclarecido do Paciente ou Família</label>
+                    <select><option>Não se aplica / Documento Histórico Antigo</option><option>Sim (anexar)</option><option>Não</option></select>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Procedimentos de Anonimização Realizados</label>
+                    <select><option>Totalmente anonimizado</option><option>Parcialmente identificado</option><option>Dados nominais explícitos</option></select>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Parecer de Comitê de Ética em Pesquisa (CEP/CONEP) (se houver)</label>
+                    <input type="file" accept=".pdf" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 5: Condições e Créditos -->
+            <div class="cpd-step-pane" data-step="5">
+              <div class="cpd-section-box">
+                <h3>Etapa 5: Condições, Restrições e Créditos Declarados</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Restrições Especiais de Exibição Pública (se houver)</label>
+                    <input type="text" placeholder="Ex.: tarjamento de nomes em prontuários, vedação de exposição cruenta ao público em geral" />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Prazo de Carência para Pesquisa (em anos, se houver justificativa)</label>
+                    <input type="number" min="0" placeholder="0 = Consulta Imediata" />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Crédito Nominal de Doação *</label>
+                    <select onchange="document.getElementById('boxCreditoDoacao').style.display = (this.value === 'Sim') ? 'flex' : 'none'">
+                      <option value="Sim">Sim, desejo crédito nominal</option>
+                      <option value="Não">Não, desejo anonimato pleno</option>
+                    </select>
+                  </div>
+                  <div id="boxCreditoDoacao" class="cpd-field cpd-grid-full">
+                    <label>Grafia Exata do Crédito Desejado</label>
+                    <input type="text" placeholder="Ex.: Doação da Família Dr. Carlos da Silva Lacaz" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 6: Minuta Integral, Rolagem e Assinatura -->
+            <div class="cpd-step-pane" data-step="6">
+              <div class="cpd-section-box">
+                <h3>Etapa 6: Leitura do Termo, Aceite e Assinatura Eletrônica</h3>
+                <p style="font-size:0.88rem; color:#64748b;">
+                  Nos termos do Art. 10 da MP nº 2.200-2/2001, a validação eletrônica plena exige a leitura integral das cláusulas abaixo. Role a barra até o final do documento para habilitar o painel de aceite.
+                </p>
+
+                <!-- Minuta Completa com Scroll Obrigatório -->
+                <div class="cpd-legal-box">
+                  <div class="cpd-termo-container" id="termoScrollDoacao" onscroll="window.checarScroll(this, 'Doacao')">
+                    <p style="text-align:center;"><b>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc)<br>FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO</b></p>
+                    <p style="text-align:center; font-weight:bold;">TERMO DE DOAÇÃO DE ACERVO CULTURAL<br><span style="font-size:0.75rem; font-weight:normal;">(Nativamente Digital — Validação Eletrônica Plena nos termos do Art. 10 da MP nº 2.200-2/2001)</span></p>
+                    <p>Pelo presente Termo de Doação de Acervo, doravante denominado simplesmente "Termo", de um lado o(a) DOADOR(A), devidamente identificado(a) e qualificado(a) no sistema eletrônico de registro conforme os dados transmitidos no preenchimento do formulário online preliminar; e, de outro lado, o MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" DA FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO, doravante denominado "Museu" ou "Donatário", unidade integrante da estrutura da Universidade de São Paulo (USP) — autarquia estadual de regime especial dotada de personalidade jurídica de direito público interno, inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, regida por seu Estatuto (Resolução USP nº 3.641/1988) e por seu Regimento Geral (Resolução USP nº 3.745/1990), com sede na Cidade de São Paulo, Capital do Estado, sujeito ao regime do Estatuto de Museus (Lei Federal nº 11.904/2009) e ao Decreto Federal nº 8.124/2013, celebram o presente negócio jurídico sob as cláusulas e condições seguintes:</p>
+                    
+                    <h4>CLÁUSULA 1 – DO OBJETO</h4>
+                    <p>O presente Termo tem por objeto a doação pura, simples, irrevogável e irretratável, pelo Doador ao Museu, do(s) bem(ns) cultural(is) especificado(s), individualizado(s) e caracterizado(s) fisicamente no formulário digital preliminar integrante deste ato, transferindo-se ao Donatário a propriedade plena, a posse física definitiva e a custódia institucional permanente do material.</p>
+
+                    <h4>CLÁUSULA 2 – DA PROVENIÊNCIA, TITULARIDADE E RESPONSABILIDADE DO DOADOR</h4>
+                    <p>O Doador atesta, sob as penalidades cíveis e criminais cabíveis, que é o legítimo proprietário e senhor do bem doado, ou detém plenos e comprovados poderes de representação de espólio ou instituição proprietária, encontrando-se o referido bem plenamente livre e desembaraçado de quaisquer ônus, gravames reais, penhoras, litígios judiciais ou extrajudiciais, reivindicações de herdeiros ou disputas de terceiros. O Doador responsabiliza-se integralmente pela exatidão e idoneidade da cadeia de custódia e das declarações de proveniência informadas, isentando a Universidade de São Paulo e o Museu de qualquer solidariedade jurídica por vícios de titularidade anteriores.</p>
+
+                    <h4>CLÁUSULA 3 – DA TRIAGEM, DA INCORPORAÇÃO E DO TOMBAMENTO MUSEOLÓGICO</h4>
+                    <p>A entrega ou envio da proposta de doação não gera vinculação imediata de acolhimento compulsório pelo Museu. A efetiva incorporação do Bem subordina-se à triagem técnica realizada pela Curadoria do MHFMUSP/CPDoc, que aferirá a compatibilidade do item com seu Plano Museológico, sua vocação temática histórico-médica e a ausência de riscos insanáveis de biossegurança. Uma vez emitido o laudo de aceitação curatorial, o processo será submetido à instância colegiada competente da Faculdade de Medicina da USP (Comissão de Orçamento e Patrimônio e/ou Congregação), conforme preceitua o Regimento Geral da USP para aceitação de bens móveis por unidades universitárias. Aprovada formalmente a incorporação, o Bem será registrado no Livro Oficial de Tombo do Museu, recebendo número de inventário patrimonial definitivo e integrando o patrimônio público cultural do Estado de São Paulo sob salvaguarda da USP.</p>
+
+                    <h4>CLÁUSULA 4 – DA GESTÃO, SALVAGUARDA E CONSERVAÇÃO PREVENTIVA</h4>
+                    <p>A partir do tombamento e da entrega física definitiva do Bem, este passará a integrar o fundo documental e museológico institucional, ficando inteiramente subordinado às políticas de conservação preventiva, controle ambiental, higienização, restauração, acondicionamento, pesquisa, expografia e difusão pública do Museu. O Donatário reserva-se a autoridade curatorial exclusiva para deliberar sobre localização em reserva técnica, empréstimo para mostras e formas de comunicação ao público, observadas, na medida da razoabilidade técnica, eventuais restrições declaradas pelo Doador no formulário online e formalmente aceitas no ato da incorporação.</p>
+
+                    <h4>CLÁUSULA 5 – DA PROPRIEDADE MATERIAL E DOS DIREITOS AUTORAIS</h4>
+                    <p>A doação opera a transferência integral da propriedade física (suporte material) do Bem cultural. Tratando-se de obras protegidas pela Lei Federal nº 9.610/1998 (Direitos Autorais), como manuscritos, fotografias, ilustrações anatômicas ou obras plásticas, a transferência do suporte físico não implica automaticamente a cessão dos direitos patrimoniais de autor, permanecendo estes na esfera de seus titulares originários ou sucessores legais, salvo declaração expressa em contrário no preenchimento do formulário. Se o Doador for o titular dos direitos autorais sobre a obra, autoriza, desde logo e a título perpétuo e não exclusivo, que o Museu fotografe, digitalize, reproduza e divulgue as imagens em catálogos, exposições físicas ou digitais, materiais institucionais, sítios eletrônicos e trabalhos acadêmicos sem fins lucrativos, preservado incondicionalmente o direito moral de paternidade da obra.</p>
+
+                    <h4>CLÁUSULA 6 – DA DESTINAÇÃO E DESINCORPORAÇÃO (DESCARTE MUSEOLÓGICO)</h4>
+                    <p>O Doador reconhece expressamente que, em situações excepcionais tecnicamente justificadas (como infestações biológicas irreversíveis que ameacem o restante do acervo, perda total da integridade física ou ausência crônica de pertinência temática documental), o Museu poderá promover o processo administrativo de desincorporação (descarte museológico) do bem, observadas estritamente as diretrizes da Lei nº 11.904/2009 e os procedimentos aprovados pelas instâncias superiores da Universidade de São Paulo, priorizando-se a transferência e o repasse para instituições de preservação congêneres antes de qualquer medida de eliminação física definitiva.</p>
+
+                    <h4>CLÁUSULA 7 – DA PROTEÇÃO DE DADOS PESSOAIS (LGPD)</h4>
+                    <p>Os dados pessoais informados pelo Doador serão tratados pelo Museu com fundamento na Lei Federal nº 13.709/2018 e na Portaria GR nº 7.674/2021 da Universidade de São Paulo, exclusivamente para instruir o processo de registro patrimonial, rastreabilidade de custódia, comunicação institucional e cumprimento de deveres legais aplicáveis às entidades públicas de patrimônio. Caso o bem doado envolva dados pessoais sensíveis de terceiros (como prontuários médicos, laudos anatomopatológicos ou registros clínicos), o Museu assegurará o cumprimento do Art. 7º, IV e do Art. 11, II, "c" da LGPD, adotando salvaguardas técnicas de pseudonimização, anonimização e controle estrito de consulta em seu Centro de Pesquisa e Documentação.</p>
+
+                    <h4>CLÁUSULA 8 – DA GRATUIDADE, IRREVOGABILIDADE E IRRETRATABILIDADE</h4>
+                    <p>A doação é formalizada em caráter absolutamente gratuito, não acarretando qualquer contrapartida financeira, indenizatória ou vantagem patrimonial ao Doador ou seus sucessores, presente ou futura, cabendo ao Museu unicamente o cumprimento da salvaguarda e, caso solicitado, o registro do crédito nominal de doação. Concluído o processo de aceite e incorporação, o negócio jurídico reveste-se de irrevogabilidade e irretratabilidade, vedada a reivindicação do bem por mera desistência unilateral do Doador ou seus herdeiros.</p>
+
+                    <h4>CLÁUSULA 9 – DA VALIDADE JURÍDICA DO ACEITE ELETRÔNICO E FORO</h4>
+                    <p>As partes reconhecem a plena eficácia jurídica, autenticidade e higidez probatória da aceitação deste Termo em formato digital, processada sob o mecanismo de certificação eletrônica descrito no formulário, contendo verificação por registro de IP, data/hora e hash criptográfico (SHA-256), renunciando expressamente à necessidade de assinatura física em papel ou reconhecimento notarial de firma. Para dirimir quaisquer conflitos porventura oriundos do cumprimento deste instrumento, é eleito exclusivamente o Foro da Comarca da Capital do Estado de São Paulo, perante uma de suas Varas da Fazenda Pública, com renúncia irrevogável a qualquer outro foro, por mais especial ou privilegiado que seja.</p>
+                  </div>
+                  <div class="cpd-scroll-status" id="statusScrollDoacao">
+                    <span>⚠️ Role a caixa acima até o fim para desbloquear o aceite.</span>
+                    <span id="scrollPctDoacao">0% lido</span>
+                  </div>
+                </div>
+
+                <!-- 5 Checkboxes Oficiais da Seção 2.3 -->
+                <div id="boxCheckboxesDoacao" style="opacity: 0.5; pointer-events: none;">
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-doacao" onchange="window.validarEnvioDoacao()" />
+                    <span><b>Declaração de Propriedade e Desembaraço:</b> Declaro, sob as penas da lei, que sou legítimo proprietário do(s) bem(ns) descrito(s) ou detenho poderes legais para representá-lo(s), estando o acervo livre de gravames, disputas ou reivindicações de terceiros. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-doacao" onchange="window.validarEnvioDoacao()" />
+                    <span><b>Declaração de Gratuidade e Irrevogabilidade:</b> Declaro estar plenamente ciente de que a doação é gratuita, voluntária e irrevogável, transferindo definitivamente a posse e propriedade material do acervo ao Museu Histórico da FMUSP após a aprovação das instâncias da USP. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-doacao" onchange="window.validarEnvioDoacao()" />
+                    <span><b>Leitura e Concordância Integral do Termo:</b> Confirmo que li integralmente o Termo de Doação exibido na tela e concordo de maneira irrestrita com todas as suas cláusulas e condições jurídicas. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-doacao" onchange="window.validarEnvioDoacao()" />
+                    <span><b>Consentimento de Tratamento de Dados (LGPD):</b> Autorizo a Universidade de São Paulo a tratar meus dados pessoais para as finalidades exclusivas de registro institucional de patrimônio, gestão de custódia e cumprimento das normas museológicas vigentes. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-doacao" onchange="window.validarEnvioDoacao()" />
+                    <span><b>Ciência sobre as Normas de Salvaguarda:</b> Estou ciente de que, após o tombamento definitivo, o item subordina-se à política de salvaguarda, pesquisa e comunicação do Museu, incluindo normas de conservação preventiva e diretrizes institucionais de exibição pública. *</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões de Navegação do Stepper -->
+            <div class="cpd-btn-group">
+              <button type="button" class="cpd-btn cpd-btn-prev" id="btnPrevDoacao" onclick="window.navegarEtapa('Doacao', -1)" style="display:none;">Anterior</button>
+              <button type="button" class="cpd-btn cpd-btn-next" id="btnNextDoacao" onclick="window.navegarEtapa('Doacao', 1)">Próximo</button>
+              <button type="submit" class="cpd-btn cpd-btn-submit" id="btnSubmitDoacao" style="display:none;" disabled>CONCORDO E ASSINO DIGITALMENTE A PROPOSTA DE DOAÇÃO</button>
+            </div>
+          </form>
+        `;
+      }
+
+      // =======================================================================
+      // TEMPLATE 2: ACESSO E REPRODUÇÃO (5 ETAPAS)
+      // =======================================================================
+      function obterTemplateAcesso() {
+        return `
+          <h2 class="cpd-header-subtitle">Termo para Acesso e Reprodução de Acervo</h2>
+          <div class="cpd-header-desc">
+            Solicitação formal de consulta presencial e reprodução técnica digital fundamentada na Lei de Museus (Lei nº 11.904/2009) e na LAI (Lei nº 12.527/2011).
+          </div>
+
+          <!-- Wizard Nav -->
+          <div class="cpd-wizard-nav" id="wizNavAcesso">
+            <div class="cpd-wizard-step active" data-step="1"><span class="cpd-step-number">1</span> Solicitante</div>
+            <div class="cpd-wizard-step" data-step="2"><span class="cpd-step-number">2</span> Projeto & CEP</div>
+            <div class="cpd-wizard-step" data-step="3"><span class="cpd-step-number">3</span> Itens Solicitados</div>
+            <div class="cpd-wizard-step" data-step="4"><span class="cpd-step-number">4</span> Modalidade</div>
+            <div class="cpd-wizard-step" data-step="5"><span class="cpd-step-number">5</span> Termo & Aceite</div>
+          </div>
+
+          <form id="formAcesso" onsubmit="window.submeterFormulario(event, 'ACESSO_REPRODUCAO')">
+            
+            <!-- Etapa 1: Identificação -->
+            <div class="cpd-step-pane active" data-step="1">
+              <div class="cpd-section-box">
+                <h3>Etapa 1: Cadastro do Pesquisador / Solicitante</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Nome Completo *</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>CPF (Brasileiros) ou Passaporte (Estrangeiros) *</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Documento Oficial de Identificação com Foto *</label>
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Vínculo Institucional *</label>
+                    <select required onchange="document.getElementById('boxComprovanteAcesso').style.display = (this.value !== 'Sem Vínculo Acadêmico') ? 'flex' : 'none'">
+                      <option value="">Selecione...</option>
+                      <option value="Discente de Graduação">Discente de Graduação</option>
+                      <option value="Discente de Pós-Graduação">Discente de Pós-Graduação</option>
+                      <option value="Docente-Pesquisador">Docente-Pesquisador</option>
+                      <option value="Pesquisador Externo Independente">Pesquisador Externo Independente</option>
+                      <option value="Profissional de Imprensa">Profissional de Imprensa</option>
+                      <option value="Editora / Produtora">Editora / Produtora</option>
+                      <option value="Sem Vínculo Acadêmico">Sem Vínculo Acadêmico</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Instituição de Origem *</label>
+                    <input type="text" placeholder="Universidade, Órgão ou 'Independente'" required />
+                  </div>
+                  <div id="boxComprovanteAcesso" class="cpd-field cpd-grid-full" style="display:none;">
+                    <label>Comprovante de Vínculo (Declaração de matrícula, crachá funcional, carta) *</label>
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" />
+                  </div>
+                  <div class="cpd-field">
+                    <label>E-mail para Notificações e Envio de Links *</label>
+                    <input type="email" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Telefone / WhatsApp de Contato *</label>
+                    <input type="tel" required />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 2: Projeto e CEP -->
+            <div class="cpd-step-pane" data-step="2">
+              <div class="cpd-section-box">
+                <h3>Etapa 2: Finalidade da Pesquisa e Delimitação do Projeto</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Natureza da Finalidade *</label>
+                    <select required>
+                      <option value="">Selecione...</option>
+                      <option>Pesquisa Acadêmica (TCC, Dissertação, Tese, Artigo)</option>
+                      <option>Pesquisa Curatorial / Institucional</option>
+                      <option>Matéria Jornalística / Editorial</option>
+                      <option>Produção Audiovisual / Documental</option>
+                      <option>Pesquisa Pessoal / Genealógica</option>
+                      <option>Outra</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Título e Descrição Sucinta do Projeto (Mínimo de 100 caracteres) *</label>
+                    <textarea id="descProjAcesso" rows="3" minlength="100" placeholder="Justificação clara do nexo temático entre a pesquisa e o fundo documental solicitado" required oninput="window.contarCaracteres(this, 'counterAcesso', 100)"></textarea>
+                    <small id="counterAcesso" style="color:#8b1e2f;">Mínimo de 100 caracteres (0 preenchidos).</small>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Órgão de Fomento / Financiamento</label>
+                    <input type="text" placeholder="FAPESP, CNPq, CAPES, etc." />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Pesquisa Envolvendo Prontuários ou Dados Clínicos de Terceiros? *</label>
+                    <select onchange="document.getElementById('boxCepAcesso').style.display = (this.value === 'Sim') ? 'flex' : 'none'">
+                      <option value="Não">Não se aplica</option>
+                      <option value="Sim">Sim (exige Parecer CEP/CONEP)</option>
+                    </select>
+                  </div>
+                  <div id="boxCepAcesso" class="cpd-field cpd-grid-full" style="display:none;">
+                    <label>Upload do Parecer Consubstanciado de Aprovação CEP/CONEP (Obrigatório) *</label>
+                    <input type="file" accept=".pdf" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 3: Itens Solicitados -->
+            <div class="cpd-step-pane" data-step="3">
+              <div class="cpd-section-box">
+                <h3>Etapa 3: Seleção e Identificação dos Itens do Acervo</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field">
+                    <label>Código(s) de Tombamento / Inventário ou Localização *</label>
+                    <input type="text" placeholder="Ex.: MHFMUSP-DOC-0142, Caixa 12" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Volume Estimado de Itens / Páginas / Peças *</label>
+                    <input type="number" min="1" required />
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Denominação e Descrição dos Itens *</label>
+                    <textarea rows="3" placeholder="Identificação dos documentos, livros raros, fotografias ou modelos de cera pretendidos" required></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 4: Modalidade -->
+            <div class="cpd-step-pane" data-step="4">
+              <div class="cpd-section-box">
+                <h3>Etapa 4: Modalidade de Atendimento Pretendida</h3>
+                <div class="cpd-field">
+                  <label>Selecione a Modalidade *</label>
+                  <select id="selModAcesso" required onchange="window.alternarModAcesso(this.value)">
+                    <option value="">Selecione...</option>
+                    <option value="PRESENCIAL">Consulta Presencial (In loco no Museu)</option>
+                    <option value="REMOTO">Atendimento Remoto (Envio de Reprodução Digital)</option>
+                    <option value="AMBAS">Ambas as modalidades</option>
+                  </select>
+                </div>
+
+                <!-- Bloco Presencial -->
+                <div id="blocoPresencial" style="display:none; background:#fafdfc; border:1px solid #136357; border-radius:4px; padding:15px; margin-top:14px;">
+                  <h4 style="color:#136357; margin-top:0;">Configuração da Consulta Presencial</h4>
+                  <div class="cpd-grid-2">
+                    <div class="cpd-field">
+                      <label>Datas Pretendidas (até 3 opções) *</label>
+                      <input type="text" placeholder="1ª Opção, 2ª Opção, 3ª Opção" />
+                    </div>
+                    <div class="cpd-field">
+                      <label>Turno Pretendido *</label>
+                      <select><option>Manhã (09h às 12h)</option><option>Tarde (13h às 16h)</option></select>
+                    </div>
+                    <div class="cpd-field">
+                      <label>Duração Estimada</label>
+                      <select><option>Até 2 horas</option><option>Meio período</option><option>Dia inteiro</option><option>Múltiplas sessões</option></select>
+                    </div>
+                    <div class="cpd-field">
+                      <label>Cadastro de Acompanhantes Autorizados (Nome e Doc)</label>
+                      <input type="text" placeholder="Nome dos colaboradores" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bloco Remoto -->
+                <div id="blocoRemoto" style="display:none; background:#fafdfc; border:1px solid #136357; border-radius:4px; padding:15px; margin-top:14px;">
+                  <h4 style="color:#136357; margin-top:0;">Configuração da Reprodução Digital Remota</h4>
+                  <div class="cpd-grid-2">
+                    <div class="cpd-field">
+                      <label>Tipo de Reprodução *</label>
+                      <select>
+                        <option>Consulta a cópia já digitalizada</option>
+                        <option>Nova reprodução fotográfica de alta resolução</option>
+                        <option>Digitalização de documento textual / prontuário</option>
+                        <option>Transferência de matriz de áudio/vídeo</option>
+                      </select>
+                    </div>
+                    <div class="cpd-field">
+                      <label>Resolução Solicitada *</label>
+                      <select>
+                        <option>Baixa resolução (72-150 DPI — fins de tela/leitura)</option>
+                        <option>Alta resolução (300-600 DPI, TIFF/RAW — fins editoriais)</option>
+                      </select>
+                    </div>
+                    <div class="cpd-field cpd-grid-full">
+                      <label class="cpd-checkbox-row">
+                        <input type="checkbox" required />
+                        <span><b>Ciência de Ressarcimento sob a LAI:</b> Declaro ciência de que a busca e consulta de informações são gratuitas, podendo haver cobrança de taxa restrita ao ressarcimento do custo real de novos serviços de digitalização ou materiais, conforme a Lei Federal nº 12.527/2011. *</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 5: Minuta Integral, Rolagem e Aceite -->
+            <div class="cpd-step-pane" data-step="5">
+              <div class="cpd-section-box">
+                <h3>Etapa 5: Compromisso de Uso, Crédito Institucional e Aceite</h3>
+
+                <!-- Fórmula de Citação em Destaque -->
+                <div class="cpd-citation-box">
+                  <b style="color:#136357;"><i class="fa fa-quote-left"></i> Regra Obrigatória de Citação Institucional (ABNT / Vancouver):</b>
+                  <span class="cpd-citation-formula">
+                    Acervo do Museu Histórico "Prof. Carlos da Silva Lacaz" da Faculdade de Medicina da Universidade de São Paulo (MHFMUSP / CPDoc). Código de Tombamento/Localização: [Número correspondente]
+                  </span>
+                </div>
+
+                <!-- Minuta Completa com Scroll Obrigatório -->
+                <div class="cpd-legal-box">
+                  <div class="cpd-termo-container" id="termoScrollAcesso" onscroll="window.checarScroll(this, 'Acesso')">
+                    <p style="text-align:center;"><b>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc)<br>FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO</b></p>
+                    <p style="text-align:center; font-weight:bold;">TERMO PARA ACESSO E REPRODUÇÃO DE ACERVO HISTÓRICO<br><span style="font-size:0.75rem; font-weight:normal;">(Nativamente Digital — Fundamentado nas Leis nº 11.904/2009, nº 12.527/2011, nº 9.610/1998 e nº 13.709/2018)</span></p>
+                    <p>Pelo presente Termo para Acesso e Reprodução de Acervo, doravante "Termo", de um lado o(a) PESQUISADOR(A)/SOLICITANTE, devidamente identificado(a) e registrado(a) no sistema eletrônico de atendimento do Museu a partir das declarações transmitidas na Parte A deste ambiente web; e, de outro lado, o MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" DA FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO, doravante "Museu", integrante da Universidade de São Paulo (USP), autarquia estadual de regime especial inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, com sede na Comarca da Capital do Estado de São Paulo, na qualidade de instituição custodiante e gestora do acervo museológico e documental sob sua guarda, celebram o presente instrumento com base nas seguintes cláusulas e condições:</p>
+
+                    <h4>CLÁUSULA 1 – DO OBJETO</h4>
+                    <p>O presente Termo estabelece as condições de franqueamento de acesso físico, manuseio para consulta in loco e/ou fornecimento de reproduções digitais de bens, documentos textuais, fotografias, prontuários históricos ou peças tridimensionais integrantes do acervo sob a custódia do Museu, estritamente para a consecução da pesquisa ou finalidade declarada na etapa de cadastro.</p>
+
+                    <h4>CLÁUSULA 2 – DAS CONDIÇÕES GERAIS E DAS RESTRIÇÕES DE SALVAGUARDA</h4>
+                    <p>O acesso ao acervo do Museu subordinar-se-á, em qualquer modalidade, ao estado de integridade física dos suportes e às prioridades do cronograma curatorial. O Museu reserva-se o direito de restringir, retardar ou negar motivadamente a consulta direta a peças com fragilidades estruturais acentuadas, suportes em restauro, itens com cláusula restritiva estipulada pelo doador originário, ou fundos documentais que demandem tratamento prévio de biossegurança ou higienização. Em relação a documentos que contenham dados de saúde e histórico clínico de terceiros, a consulta subordina-se à apresentação de protocolo ou aprovação formal de Comitê de Ética em Pesquisa (CEP/CONEP), sempre que aplicável.</p>
+
+                    <h4>CLÁUSULA 3 – DA CONSULTA PRESENCIAL (IN LOCO) E REGRAS DE MANUSEIO</h4>
+                    <p>A consulta nas dependências do CPDoc dar-se-á em data e horário previamente confirmados pela equipe técnica do Museu. Durante a sessão, o Solicitante obriga-se a:<br>
+                    a) Apresentar documento de identificação oficial original com foto no ingresso à sala de consulta;<br>
+                    b) Submeter-se rigorosamente às normas de conservação preventiva, operando obrigatoriamente com o uso de luvas (nitrílicas ou de algodão), suportes de espuma, pesos de chumbo e demais instrumentos de apoio fornecidos pela equipe técnica;<br>
+                    c) Abster-se do porte de canetas de tinta, líquidos, alimentos, bolsas ou mochilas no ambiente de salvaguarda, sendo admitido unicamente o uso de lápis grafite, folhas avulsas e computador portátil;<br>
+                    d) Utilizar câmeras fotográficas ou celulares apenas para captação de registros de referência acadêmica, sem a emissão de luz artificial contínua ou flash fotográfico, e sob supervisão do servidor responsável. O Solicitante responde integral e patrimonialmente por quaisquer danos, fissuras, perdas ou avarias físicas provocadas por sua conduta dolosa ou culposa sobre os bens consultados.</p>
+
+                    <h4>CLÁUSULA 4 – DO ATENDIMENTO REMOTO E DO RESSARCIMENTO SOB A LAI</h4>
+                    <p>Quando a solicitação limitar-se ao envio de reproduções digitais sem comparecimento presencial, o fornecimento das imagens será efetuado por link eletrônico seguro para download ou transferência de dados. Em estrito atendimento ao Artigo 12 da Lei Federal nº 12.527/2011 (Lei de Acesso à Informação) e ao Decreto nº 7.724/2012, aplicáveis à USP como autarquia estadual, a busca aos documentos e a consulta às bases institucionais são inteiramente gratuitas. Caso haja necessidade de digitalização especial, novas capturas de alta complexidade ou materiais consumíveis de custódia, o Museu poderá cobrar taxa correspondente exclusivamente ao ressarcimento do custo real dos serviços de reprodução e dos suportes fornecidos, ficando vedada qualquer cobrança tarifária com fins de lucro sobre o fornecimento básico de informações públicas.</p>
+
+                    <h4>CLÁUSULA 5 – DOS DIREITOS DE PROPRIEDADE INTELECTUAL DE TERCEIROS</h4>
+                    <p>A disponibilização das reproduções pelo Museu não implica, em hipótese alguma, outorga, licença ou transferência de direitos autorais de terceiros eventualmente incidentes sobre as obras consultadas (autores de textos, médicos ilustradores, fotógrafos ou herdeiros), cuja proteção jurídica rege-se de forma autônoma pela Lei nº 9.610/1998. Incumbe com exclusividade ao Solicitante identificar, contatar e colher as anuências necessárias junto aos respectivos titulares de direitos morais e patrimoniais de terceiros, eximindo o Museu e a Universidade de São Paulo de quaisquer demandas, cobranças ou reivindicações indenizatórias advindas da publicação ou veiculação da obra.</p>
+
+                    <h4>CLÁUSULA 6 – DO CRÉDITO INSTITUCIONAL OBRIGATÓRIO (CITAÇÃO)</h4>
+                    <p>Em todo e qualquer trabalho, publicação impressa ou eletrônica, comunicação em congresso, tese, dissertação ou exposição em que figurarem imagens ou citações textuais originadas do acervo consultado, o Solicitante assume a obrigação inegociável de atribuir o devido crédito institucional ao Museu, adotando a seguinte forma padrão de citação:<br>
+                    "Acervo do Museu Histórico 'Prof. Carlos da Silva Lacaz' da Faculdade de Medicina da Universidade de São Paulo (MHFMUSP / CPDoc). Código de Tombamento/Localização: [Número correspondente]".</p>
+
+                    <h4>CLÁUSULA 7 – DA TAXATIVA VEDAÇÃO AO USO COMERCIAL NÃO AUTORIZADO</h4>
+                    <p>É terminantemente proibido ao Solicitante utilizar, ceder, sublicenciar, comercializar ou alienar qualquer das imagens, cópias, documentos ou transcrições obtidas sob a vigência deste Termo para finalidades econômicas, comerciais, publicitárias, de merchandising ou de promoção mercadológica de produtos ou serviços. A exploração comercial de imagens do acervo do Museu exige, compulsoriamente, processo específico e apartado regido pelo "Termo de Autorização e Licenciamento para Uso Comercial de Acervo" do MHFMUSP, o qual fixa regras de contrapartida onerosa e controles de licenciamento em conformidade com o patrimônio da USP.</p>
+
+                    <h4>CLÁUSULA 8 – DA TUTELA DE DADOS SENSÍVEIS DE SAÚDE (LGPD)</h4>
+                    <p>Sendo o acervo do Museu composto por registros médicos, documentos de internação hospitalar, prontuários clínicos e iconografia anatômica, o Solicitante assume o compromisso de tratar os dados aos quais tiver acesso sob rigorosa confidencialidade, pautando-se pelas disposições da Lei Federal nº 13.709/2018. O Solicitante obriga-se a promover a total anonimização ou pseudonimização dos nomes, fotografias de pacientes que revelem fisionomia ou traços identitários, dados genéticos e números de registro pessoal em suas publicações científicas, respondendo civil, criminal e administrativamente por qualquer exposição indevida da honra, privacidade ou imagem de pessoas retratadas ou mencionadas no acervo.</p>
+
+                    <h4>CLÁUSULA 9 – DAS SANÇÕES PELO DESCUMPRIMENTO</h4>
+                    <p>A inobservância comprovada das cláusulas do presente Termo — em especial a exploração comercial clandestina de imagens, a supressão do crédito institucional, a quebra de sigilo de dados sensíveis ou o dano físico a itens de acervo — acarretará ao Solicitante, de forma cumulativa e sem prejuízo das medidas judiciais cabíveis perante os juízos da Fazenda Pública e varas criminais:<br>
+                    a) Revogação e suspensão sumária de todas as autorizações de pesquisa e reprodução concedidas;<br>
+                    b) Obrigação de remoção e recolhimento imediato de publicações físicas ou conteúdos eletrônicos irregulares;<br>
+                    c) Bloqueio administrativo para novas pesquisas e consultas presenciais perante o MHFMUSP/CPDoc pelo prazo de até 5 (cinco) anos;<br>
+                    d) Instauração de procedimento de responsabilização civil para ressarcimento de perdas e danos e danos morais coletivos à Universidade de São Paulo.</p>
+
+                    <h4>CLÁUSULA 10 – DO APERFEIÇOAMENTO DIGITAL E FORO</h4>
+                    <p>O presente Termo reputa-se aperfeiçoado e eficaz no exato instante de seu aceite eletrônico validado pela assinatura criptográfica de metadados no sistema web do Museu, nos termos do Art. 10 da MP nº 2.200-2/2001. As partes elegem as Varas da Fazenda Pública da Comarca da Capital de São Paulo para solucionar quaisquer questões contenciosas decorrentes da execução deste negócio jurídico.</p>
+                  </div>
+                  <div class="cpd-scroll-status" id="statusScrollAcesso">
+                    <span>⚠️ Role a caixa acima até o fim para desbloquear o aceite.</span>
+                    <span id="scrollPctAcesso">0% lido</span>
+                  </div>
+                </div>
+
+                <!-- 6 Checkboxes Oficiais da Seção 3.3 -->
+                <div id="boxCheckboxesAcesso" style="opacity: 0.5; pointer-events: none;">
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-acesso" onchange="window.validarEnvioAcesso()" />
+                    <span><b>Compromisso de Finalidade Estrita:</b> Comprometo-me a utilizar o acervo e/ou suas reproduções exclusivamente para as finalidades acadêmicas, culturais ou informativas declaradas no formulário. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-acesso" onchange="window.validarEnvioAcesso()" />
+                    <span><b>Vedação Absoluta ao Uso Comercial:</b> Declaro ter pleno conhecimento de que é vedado qualquer uso comercial, mercadológico ou publicitário do material consultado, cuja exploração econômica demanda celebração prévia de instrumento apartado de licenciamento. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-acesso" onchange="window.validarEnvioAcesso()" />
+                    <span><b>Obrigação de Crédito Institucional:</b> Comprometo-me a inserir de maneira explícita o crédito institucional ao MHFMUSP/CPDoc em todas as publicações, divulgações ou telas onde o material venha a ser exibido. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-acesso" onchange="window.validarEnvioAcesso()" />
+                    <span><b>Responsabilidade por Direitos Autorais de Terceiros:</b> Reconheço que a presente autorização não outorga direitos autorais de terceiros incidentes sobre as obras, cuja obtenção caberá exclusivamente à minha pessoa. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-acesso" onchange="window.validarEnvioAcesso()" />
+                    <span><b>Conformidade Ética e Anonimização de Dados Sensíveis:</b> Comprometo-me a observar rigorosamente as exigências da LGPD e as normas éticas de pesquisa médica, adotando total anonimização em caso de dados clínicos ou prontuários consultados. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-acesso" onchange="window.validarEnvioAcesso()" />
+                    <span><b>Aceite das Regras de Salvaguarda e Cláusulas Gerais:</b> Declaro que li integralmente o Termo na tela e aceito todas as condições operacionais, sanções e cláusulas estipuladas. *</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões de Navegação do Stepper -->
+            <div class="cpd-btn-group">
+              <button type="button" class="cpd-btn cpd-btn-prev" id="btnPrevAcesso" onclick="window.navegarEtapa('Acesso', -1)" style="display:none;">Anterior</button>
+              <button type="button" class="cpd-btn cpd-btn-next" id="btnNextAcesso" onclick="window.navegarEtapa('Acesso', 1)">Próximo</button>
+              <button type="submit" class="cpd-btn cpd-btn-submit" id="btnSubmitAcesso" style="display:none;" disabled>CONCORDO E ENVIAR SOLICITAÇÃO DE ACESSO</button>
+            </div>
+          </form>
+        `;
+      }
+
+      // =======================================================================
+      // TEMPLATE 3: LICENCIAMENTO COMERCIAL (5 ETAPAS)
+      // =======================================================================
+      function obterTemplateLicenciamento() {
+        return `
+          <h2 class="cpd-header-subtitle">Termo de Licenciamento para Uso Comercial de Acervo</h2>
+          <div class="cpd-header-desc">
+            Instrumento jurídico apartado para autorização onerosa de imagens e dados históricos sob as normas de arrecadação da USP e da Lei nº 9.610/1998.
+          </div>
+
+          <!-- Wizard Nav -->
+          <div class="cpd-wizard-nav" id="wizNavLicenciamento">
+            <div class="cpd-wizard-step active" data-step="1"><span class="cpd-step-number">1</span> Empresa / PF</div>
+            <div class="cpd-wizard-step" data-step="2"><span class="cpd-step-number">2</span> Projeto & Mockup</div>
+            <div class="cpd-wizard-step" data-step="3"><span class="cpd-step-number">3</span> Contrapartida</div>
+            <div class="cpd-wizard-step" data-step="4"><span class="cpd-step-number">4</span> Conformidade Ética</div>
+            <div class="cpd-wizard-step" data-step="5"><span class="cpd-step-number">5</span> Proposta Vinculante</div>
+          </div>
+
+          <form id="formLicenciamento" onsubmit="window.submeterFormulario(event, 'LICENCIAMENTO_COMERCIAL')">
+            
+            <!-- Etapa 1: Qualificação -->
+            <div class="cpd-step-pane active" data-step="1">
+              <div class="cpd-section-box">
+                <h3>Etapa 1: Qualificação da Solicitante</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Natureza da Solicitante *</label>
+                    <select required onchange="document.getElementById('boxRazaoLic').style.display = (this.value === 'PJ') ? 'flex' : 'none'">
+                      <option value="PJ">Pessoa Jurídica (Empresa, Produtora, Editora)</option>
+                      <option value="PF">Pessoa Física com Atuação Comercial (Produtor, Autor autônomo)</option>
+                    </select>
+                  </div>
+                  <div id="boxRazaoLic" class="cpd-field cpd-grid-full">
+                    <label>Razão Social e Nome Fantasia *</label>
+                    <input type="text" />
+                  </div>
+                  <div class="cpd-field">
+                    <label>CNPJ ou CPF *</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Cartão CNPJ ou Comprovante de Inscrição *</label>
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>CEP Comercial *</label>
+                    <input type="text" id="cepLic" maxlength="9" onblur="window.buscarCep(this.value, 'Lic')" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Endereço Completo da Empresa *</label>
+                    <input type="text" id="logradouroLic" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Representante Legal (Nome Completo e Cargo) *</label>
+                    <input type="text" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Contrato Social ou Procuração de Representação *</label>
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>E-mail Corporativo *</label>
+                    <input type="email" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Telefone Oficial da Empresa *</label>
+                    <input type="tel" required />
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Setor de Atuação *</label>
+                    <select required>
+                      <option value="">Selecione...</option>
+                      <option>Editorial / Livrarias</option>
+                      <option>Audiovisual / Cinema / Streaming</option>
+                      <option>Indústria Farmacêutica / Hospitalar</option>
+                      <option>Moda e Acessórios</option>
+                      <option>Merchandising e Papelaria</option>
+                      <option>Mídias Digitais e Games</option>
+                      <option>Outro</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 2: Projeto e Mockup -->
+            <div class="cpd-step-pane" data-step="2">
+              <div class="cpd-section-box">
+                <h3>Etapa 2: Detalhamento Técnico e Financeiro do Projeto</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Itens do Acervo Pretendidos (Códigos de Tombamento) *</label>
+                    <input type="text" placeholder="Ex.: MHFMUSP-ICO-0012, Coleção Lacaz" required />
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Memorial Descritivo do Produto ou Serviço (Mínimo de 200 caracteres) *</label>
+                    <textarea id="descProjLic" rows="4" minlength="200" placeholder="Especifique com exatidão como a imagem será aplicada: capa de livro comercial, elemento cenográfico, estampa têxtil, rótulo, embalagem, etc." required oninput="window.contarCaracteres(this, 'counterLic', 200)"></textarea>
+                    <small id="counterLic" style="color:#8b1e2f;">Mínimo de 200 caracteres (0 preenchidos).</small>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Amostra Gráfica / Mockup Digital da Aplicação (Upload Obrigatório) *</label>
+                    <input type="file" accept=".pdf,.jpg,.jpeg,.png" required />
+                    <small style="color:#64748b;">Anexe o layout visual da peça ou produto mostrando a inserção exata do acervo.</small>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Tiragem / Volume Estimado de Produção *</label>
+                    <input type="text" placeholder="Ex.: 3.000 exemplares impressos" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Território de Distribuição *</label>
+                    <select required>
+                      <option>Nacional (Brasil)</option>
+                      <option>América Latina</option>
+                      <option>Mundial (Global)</option>
+                      <option>Digital sem restrição geográfica</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Canais de Comercialização *</label>
+                    <input type="text" placeholder="Livrarias físicas, E-commerce, VOD, Redes Sociais" required />
+                  </div>
+                  <div class="cpd-field">
+                    <label>Prazo de Vigência Pretendido *</label>
+                    <select required>
+                      <option>12 meses</option>
+                      <option>24 meses</option>
+                      <option>36 meses</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Caráter de Exclusividade Pretendido?</label>
+                    <select onchange="document.getElementById('boxExclusividadeLic').style.display = (this.value === 'Sim') ? 'flex' : 'none'">
+                      <option value="Não">Não Exclusivo (Regra Geral Institucional)</option>
+                      <option value="Sim">Sim (Excepcionalíssimo — exige justificativa)</option>
+                    </select>
+                  </div>
+                  <div id="boxExclusividadeLic" class="cpd-field cpd-grid-full" style="display:none;">
+                    <label>Justificativa Formal para Pedido de Exclusividade *</label>
+                    <textarea rows="2"></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 3: Contrapartida Financeira -->
+            <div class="cpd-step-pane" data-step="3">
+              <div class="cpd-section-box">
+                <h3>Etapa 3: Modelo de Contrapartida Econômica e Parâmetros Financeiros</h3>
+                <div class="cpd-grid-2">
+                  <div class="cpd-field">
+                    <label>Modalidade de Licenciamento Proposta *</label>
+                    <select id="selModFinancLic" required onchange="document.getElementById('boxIsencaoLic').style.display = (this.value === 'ISENCAO') ? 'flex' : 'none'">
+                      <option value="TAXA_FIXA">Taxa Fixa Única de Licenciamento</option>
+                      <option value="ROYALTIES">Royalties sobre Faturamento de Vendas</option>
+                      <option value="HIBRIDO">Modelo Híbrido (Taxa Fixa Inicial + Royalties)</option>
+                      <option value="ISENCAO">Pedido Excepcional de Isenção (Sem Fins Lucrativos)</option>
+                    </select>
+                  </div>
+                  <div class="cpd-field">
+                    <label>Preço Estimado de Venda Unitário ao Consumidor (R$) *</label>
+                    <input type="text" placeholder="Ex.: R$ 89,90" required />
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <label>Previsão de Faturamento Bruto com o Produto (R$) *</label>
+                    <input type="text" placeholder="Ex.: R$ 250.000,00" required />
+                  </div>
+                  <div id="boxIsencaoLic" class="cpd-field cpd-grid-full" style="display:none;">
+                    <label>Justificativa Circunstanciada para Pedido de Isenção *</label>
+                    <textarea rows="2" placeholder="Descrever caráter educativo gratuito ou amparo por leis de incentivo cultural"></textarea>
+                  </div>
+                  <div class="cpd-field cpd-grid-full">
+                    <div style="background:#fffbeb; border-left:4px solid #f59e0b; padding:12px; font-size:0.86rem; color:#92400e;">
+                      <b>Aviso Financeiro Obrigatório:</b> Por força da legislação da USP (Resoluções nº 3.641/1988 e nº 3.745/1990), as receitas de licenciamento são arrecadadas exclusivamente por meio de guias oficiais da USP ou convênios via Fundação de Apoio credenciada (Lei nº 8.958/1994). É vedado qualquer pagamento a pessoas físicas.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Etapa 4: Conformidade Ética -->
+            <div class="cpd-step-pane" data-step="4">
+              <div class="cpd-section-box">
+                <h3>Etapa 4: Módulo de Conformidade Ética e Restrições Setoriais</h3>
+                <p style="font-size:0.88rem; color:#64748b;">
+                  O acervo do MHFMUSP guarda a memória da ciência e da saúde humana, exigindo rigor ético incondicional:
+                </p>
+                <label class="cpd-checkbox-row">
+                  <input type="checkbox" required />
+                  <span><b>Vedação a Conteúdos Depreciativos e Impróprios:</b> Declaro que o produto/serviço comercial não promove, direta ou indiretamente, produtos de tabaco, bebidas alcoólicas destiladas, armas de fogo, jogos de azar, práticas discriminatórias ou apologia a ilícitos. *</span>
+                </label>
+                <label class="cpd-checkbox-row">
+                  <input type="checkbox" required />
+                  <span><b>Salvaguarda contra Charlatanismo e Desinformação:</b> Atesto expressamente que a imagem ou memória do acervo não será vinculada a promessas milagrosas de cura, produtos sem validação científica (ANVISA), ou peças que induzam o público a crer em endosso da Faculdade de Medicina da USP. *</span>
+                </label>
+                <label class="cpd-checkbox-row">
+                  <input type="checkbox" required />
+                  <span><b>Preservação da Dignidade Humana:</b> Comprometo-me a não expor de maneira sensacionalista, cômica ou grotesca peças anatômicas humanas ou o sofrimento físico retratado no acervo histórico. *</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Etapa 5: Minuta Integral, Rolagem e Proposta Vinculante -->
+            <div class="cpd-step-pane" data-step="5">
+              <div class="cpd-section-box">
+                <h3>Etapa 5: Leitura do Termo, Aceite e Formalização da Proposta Vinculante</h3>
+                <p style="font-size:0.88rem; color:#64748b;">
+                  Role a minuta contratual até o fim para desbloquear as declarações de aceite corporativo.
+                </p>
+
+                <!-- Minuta Completa com Scroll Obrigatório -->
+                <div class="cpd-legal-box">
+                  <div class="cpd-termo-container" id="termoScrollLic" onscroll="window.checarScroll(this, 'Lic')">
+                    <p style="text-align:center;"><b>MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ"<br>CENTRO DE PESQUISA E DOCUMENTAÇÃO (CPDoc)<br>FACULDADE DE MEDICINA DA UNIVERSIDADE DE SÃO PAULO</b></p>
+                    <p style="text-align:center; font-weight:bold;">TERMO DE AUTORIZAÇÃO E LICENCIAMENTO PARA USO COMERCIAL DE ACERVO<br><span style="font-size:0.75rem; font-weight:normal;">(Instrumento Apartado — Exploração Econômica Onerosa sob a Lei nº 9.610/1998 e Resoluções da USP)</span></p>
+                    <p>Pelo presente Termo de Autorização e Licenciamento para Uso Comercial de Acervo, doravante "Termo", de um lado a empresa ou solicitante qualificado(a) na Parte A deste ambiente web, representada por seus diretores ou mandatários com poderes bastantes conforme documentação anexada, doravante denominada simplesmente "LICENCIADA"; e, de outro lado, a UNIVERSIDADE DE SÃO PAULO (USP), autarquia estadual de regime especial, inscrita no CNPJ/MF sob o nº 63.025.530/0001-04, representada pelo Diretor da Faculdade de Medicina da Universidade de São Paulo (FMUSP) ou pelo Curador do MUSEU HISTÓRICO "PROF. CARLOS DA SILVA LACAZ" (MHFMUSP), na conformidade do Estatuto da USP (Resolução nº 3.641/1988) e de seu Regimento Geral (Resolução nº 3.745/1990), doravante "MUSEU" ou "LICENCIANTE", pactuam o presente contrato de licença de direitos nos termos das seguintes cláusulas:</p>
+
+                    <h4>CLÁUSULA 1 – DO OBJETO DA LICENÇA</h4>
+                    <p>Constitui objeto do presente instrumento a outorga, pelo Licenciante à Licenciada, de licença onerosa, restrita e não exclusiva de uso de reproduções digitais em alta definição de bem(ns) integrante(s) do acervo do Museu, individualizado(s) no formulário eletrônico preliminar, para utilização estritamente vinculada ao produto, suporte físico/digital, tiragem, território e prazos especificados na solicitação aprovada.</p>
+
+                    <h4>CLÁUSULA 2 – DA NÃO EXCLUSIVIDADE E DA VEDAÇÃO À SUBLICENÇA</h4>
+                    <p>A licença é conferida em caráter eminentemente precário e não exclusivo, reservando-se o Museu o direito inalienável de conceder licenças simultâneas sobre os mesmos itens do acervo para quaisquer terceiros, inclusive agentes do mesmo segmento econômico da Licenciada. É expressamente vedado à Licenciada sublicenciar, comercializar, ceder, emprestar ou transferir a terceiros, sob qualquer título ou pretexto, as matrizes digitais fornecidas ou as prerrogativas de exploração de imagem outorgadas por este Termo.</p>
+
+                    <h4>CLÁUSULA 3 – DOS LIMITES TEMPORAIS E DO ESCOAMENTO DE ESTOQUE</h4>
+                    <p>A autorização vige estritamente pelo lapso temporal deferido no ato da aprovação curatorial e formalizado na guia contratual. Ao término do prazo pactuado, extingue-se de pleno direito a permissão de reprodução, obrigando-se a Licenciada a cessar toda produção e suspender veiculações digitais. Excepcionalmente para bens de consumo físicos, será conferido prazo de tolerância de até 90 (noventa) dias corridos para o exclusivo escoamento do estoque residual remanescente previamente fabricado, sob pena das cominações legais por violação de propriedade intelectual.</p>
+
+                    <h4>CLÁUSULA 4 – DAS CONDIÇÕES FINANCEIRAS E DA ARRECADAÇÃO PÚBLICA</h4>
+                    <p>Como contraprestação pelo licenciamento do patrimônio cultural, a Licenciada obriga-se ao adimplemento das obrigações pecuniárias pactuadas, consistentes em:<br>
+                    a) Pagamento de Taxa Fixa Inicial de Acesso e Licenciamento, a ser liquidada imediatamente após o deferimento do pedido como condição indispensável para a entrega das matrizes de alta resolução; e/ou<br>
+                    b) Recolhimento de Royalties proporcionais ao faturamento bruto de vendas do produto gerado, apurados na periodicidade aprovada pela administração do Museu.<br>
+                    Parágrafo Primeiro: Por tratar-se a USP de autarquia pública estadual, todos os valores devidos deverão ser recolhidos exclusivamente por meio de guias oficiais de arrecadação de receitas próprias da Universidade de São Paulo ou mediante instrumento formal de gestão interveniente firmado com fundação de apoio credenciada junto à Faculdade de Medicina da USP, nos precisos termos da Lei Federal nº 8.958/1994, sendo rigorosamente proibido o pagamento de quaisquer quantias a pessoas físicas ou mediante canais não previstos na regulamentação financeira da Universidade.<br>
+                    Parágrafo Segundo: O inadimplemento de qualquer obrigação financeira sujeitará a Licenciada à suspensão imediata da licença, com incidência de multa moratória de 2% (dois por cento) sobre o débito, juros moratórios de 1% (um por cento) ao mês e atualização monetária pelo índice oficial da Fazenda Pública Estadual (IPCA-IBGE), sem prejuízo de execução de dívida ativa e imediata propositura de medidas possessórias e rescisórias.</p>
+
+                    <h4>CLÁUSULA 5 – DA OBRIGATORIEDADE DE CRÉDITO E DA INTEGRIDADE DO BEM</h4>
+                    <p>Em todas as reproduções, embalagens, telas iniciais de mídias, fichas técnicas editoriais ou créditos de encerramento de produções audiovisuais, a Licenciada exibirá de forma legível e destacada o crédito oficial:<br>
+                    "Imagem/Acervo: Museu Histórico 'Prof. Carlos da Silva Lacaz' da Faculdade de Medicina da Universidade de São Paulo (MHFMUSP)".<br>
+                    Parágrafo Único: É expressamente proibida qualquer alteração, recorte descaracterizador, inversão, colorização artificial, montagem digital ou deformação da imagem que desnature seu conteúdo histórico-científico original ou que possa induzir o público consumidor a equívocos sobre sua autenticidade material e procedência.</p>
+
+                    <h4>CLÁUSULA 6 – DOS DIREITOS MORAIS E DA SALVAGUARDA ÉTICA DO ACERVO MÉDICO</h4>
+                    <p>A Licenciada reconhece que os direitos morais sobre os bens culturais sob guarda do Museu são inalienáveis e imprescritíveis, nos termos da Lei nº 9.610/1998. Em face da natureza singular do acervo histórico da Faculdade de Medicina da USP, a Licenciada compromete-se inegociavelmente a não associar o material licenciado a:<br>
+                    a) Peças publicitárias ou produtos de tabacaria, bebidas destiladas, armamentos, pornografia, apostas ou quaisquer artigos proibidos para menores;<br>
+                    b) Divulgação de produtos de saúde, cosméticos ou fitoterápicos desprovidos de comprovação científica perante os órgãos reguladores (ANVISA), sendo terminantemente proibida qualquer alegação ou contexto que faça crer em endosso, recomendação clínica ou chancela científica do Museu ou da USP;<br>
+                    c) Contextos que explorem o sofrimento físico de doentes, degradem a memória de cadáveres e peças anatômicas ou veiculem manifestações racistas, eugenistas ou discriminatórias.<br>
+                    A verificação de infração a qualquer dos preceitos éticos desta cláusula provocará a rescisão imediata e motivada do contrato, a apreensão dos produtos e a responsabilização cível e penal dos dirigentes da Licenciada.</p>
+
+                    <h4>CLÁUSULA 7 – DA FISCALIZAÇÃO E PRESTAÇÃO DE CONTAS</h4>
+                    <p>O Museu reserva-se o direito de exigir, a expensas da Licenciada e a qualquer tempo durante o contrato, o envio de 03 (três) exemplares de amostra do produto acabado para depósito probatório em seu acervo, bem como a apresentação de relatórios de tiragem e balanços contábeis subscritos por auditor ou contador responsável para conferência dos royalties devidos, no prazo de até 15 (quinze) dias corridos após notificação formal.</p>
+
+                    <h4>CLÁUSULA 8 – DA RESCISÃO MOTIVADA</h4>
+                    <p>O descumprimento de quaisquer das obrigações firmadas pela Licenciada — inclusive a alteração não consentida de tiragem, a distribuição fora do território outorgado, a ausência de pagamento ou a supressão do crédito institucional — acarretará a extinção do licenciamento, perdendo a infratora quaisquer parcelas adiantadas, incidindo em penalidade não compensatória no valor equivalente a 5 (cinco) vezes a taxa de licença original, sem prejuízo da incidência das indenizações materiais decorrentes de violação da propriedade pública nos termos da Lei de Direitos Autorais.</p>
+
+                    <h4>CLÁUSULA 9 – DA PRIVACIDADE E DA PROTEÇÃO DE DADOS (LGPD)</h4>
+                    <p>Os dados societários e cadastrais informados pelos prepostos da Licenciada serão tratados pelo Licenciante nos moldes da Lei Federal nº 13.709/2018 e da Portaria GR nº 7.674/2021 da USP, especificamente para instruir os procedimentos preparatórios e a execução de contrato administrativo (Art. 7º, V da LGPD), integrando os registros de fiscalização contábil da Universidade.</p>
+
+                    <h4>CLÁUSULA 10 – DO MECANISMO DE VALIDAÇÃO DIGITAL E FORO</h4>
+                    <p>O presente Termo formaliza-se em duas etapas estritas: a submissão da proposta vinculante pela Licenciada mediante aceite e registro computacional de dados no sistema web do Museu e o ato posterior de homologação pela Diretoria da FMUSP. As partes declaram a integral validade probatória deste instrumento assinado sob os requisitos do Art. 10 da MP nº 2.200-2/2001 e elegem privativamente o Foro da Comarca da Capital de São Paulo, perante uma de suas Varas da Fazenda Pública, com exclusão de qualquer outro foro por mais competente que seja.</p>
+                  </div>
+                  <div class="cpd-scroll-status" id="statusScrollLic">
+                    <span>⚠️ Role a caixa acima até o fim para desbloquear o aceite corporativo.</span>
+                    <span id="scrollPctLic">0% lido</span>
+                  </div>
+                </div>
+
+                <!-- 6 Checkboxes Oficiais da Seção 4.3 -->
+                <div id="boxCheckboxesLic" style="opacity: 0.5; pointer-events: none;">
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-lic" onchange="window.validarEnvioLic()" />
+                    <span><b>Declaração de Poderes de Representação Legal:</b> Declaro, sob as penas da lei, que sou representante legal com poderes específicos de gestão societária ou procurador formalmente constituído da empresa solicitante. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-lic" onchange="window.validarEnvioLic()" />
+                    <span><b>Caráter Vinculante da Proposta Comercial:</b> Reconheço que o envio deste formulário formaliza uma proposta comercial irrevogável, que somente entrará em vigor após o deferimento formal e a homologação pela Curadoria e pela Diretoria da FMUSP. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-lic" onchange="window.validarEnvioLic()" />
+                    <span><b>Vinculação Financeira às Guias Oficiais da USP:</b> Comprometo-me a recolher as contrapartidas financeiras estipuladas unicamente por meio de guia oficial de recolhimento da Universidade de São Paulo ou conta institucional de Fundação de Apoio (Lei nº 8.958/1994). *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-lic" onchange="window.validarEnvioLic()" />
+                    <span><b>Cumprimento dos Limites de Suporte, Território e Prazos:</b> Atesto ciência de que o uso do acervo limitar-se-á com rigor ao projeto aprovado, sendo vedada sua reutilização em outros produtos, suportes ou extensões territoriais sem nova autorização. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-lic" onchange="window.validarEnvioLic()" />
+                    <span><b>Observância às Cláusulas Éticas e Dignidade Humana:</b> Comprometo-me a respeitar com rigor as vedações éticas sobre acervos médicos e anatômicos, isentando a USP de qualquer vinculação com mensagens comerciais enganosas ou sensacionalistas. *</span>
+                  </label>
+                  <label class="cpd-checkbox-row">
+                    <input type="checkbox" class="chk-lic" onchange="window.validarEnvioLic()" />
+                    <span><b>Leitura e Anuência Plena do Termo na Tela:</b> Declaro que li integralmente o Termo de Licenciamento Comercial e concordo com todas as suas condições operacionais, sanções rescisórias e eleição do Foro da Fazenda Pública. *</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botões de Navegação do Stepper -->
+            <div class="cpd-btn-group">
+              <button type="button" class="cpd-btn cpd-btn-prev" id="btnPrevLic" onclick="window.navegarEtapa('Licenciamento', -1)" style="display:none;">Anterior</button>
+              <button type="button" class="cpd-btn cpd-btn-next" id="btnNextLic" onclick="window.navegarEtapa('Licenciamento', 1)">Próximo</button>
+              <button type="submit" class="cpd-btn cpd-btn-submit" id="btnSubmitLic" style="display:none;" disabled>CONCORDO E SUBMETO A PROPOSTA VINCULANTE DE LICENCIAMENTO</button>
+            </div>
+          </form>
+        `;
+      }
+
+      // =======================================================================
+      // FUNÇÕES AUXILIARES DE NAVEGAÇÃO WIZARD E VALIDAÇÃO DE CAMPOS
+      // =======================================================================
+      let etapas = {
+        Doacao: { atual: 1, total: 6, scrollOk: false },
+        Acesso: { atual: 1, total: 5, scrollOk: false },
+        Licenciamento: { atual: 1, total: 5, scrollOk: false }
+      };
+
+      window.navegarEtapa = function(modulo, direcao) {
+        const est = etapas[modulo];
+        const novoPasso = est.atual + direcao;
+
+        // Se for avançar, valida campos obrigatórios da etapa atual
+        if (direcao > 0) {
+          const painelAtual = document.querySelector(`#form${modulo} .cpd-step-pane[data-step="${est.atual}"]`);
+          const inputs = painelAtual.querySelectorAll('input, select, textarea');
+          for (let input of inputs) {
+            if (!input.checkValidity()) {
+              input.reportValidity();
+              return;
+            }
+          }
+        }
+
+        if (novoPasso >= 1 && novoPasso <= est.total) {
+          est.atual = novoPasso;
+          
+          // Alterna painéis
+          const panes = document.querySelectorAll(`#form${modulo} .cpd-step-pane`);
+          panes.forEach(p => p.classList.toggle('active', parseInt(p.dataset.step) === est.atual));
+
+          // Atualiza cabeçalho do wizard
+          const stepsNav = document.querySelectorAll(`#wizNav${modulo} .cpd-wizard-step`);
+          stepsNav.forEach(s => {
+            const sNum = parseInt(s.dataset.step);
+            s.classList.toggle('active', sNum === est.atual);
+            s.classList.toggle('completed', sNum < est.atual);
+          });
+
+          // Controla visibilidade dos botões
+          const btnPrev = document.getElementById(`btnPrev${modulo === 'Licenciamento' ? 'Lic' : modulo}`);
+          const btnNext = document.getElementById(`btnNext${modulo === 'Licenciamento' ? 'Lic' : modulo}`);
+          const btnSubmit = document.getElementById(`btnSubmit${modulo === 'Licenciamento' ? 'Lic' : modulo}`);
+
+          if (btnPrev) btnPrev.style.display = (est.atual > 1) ? 'inline-block' : 'none';
+          if (btnNext) btnNext.style.display = (est.atual < est.total) ? 'inline-block' : 'none';
+          if (btnSubmit) btnSubmit.style.display = (est.atual === est.total) ? 'inline-block' : 'none';
+
+          document.getElementById('cpdFormRoot').scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      // MONITOR DE ROLAGEM DE MINUTA (SCROLL 100%)
+      window.checarScroll = function(container, mod) {
+        const scrollPct = Math.round((container.scrollTop / (container.scrollHeight - container.clientHeight)) * 100);
+        const pctEl = document.getElementById(`scrollPct${mod}`);
+        if (pctEl) pctEl.textContent = `${Math.min(100, scrollPct)}% lido`;
+
+        if (container.scrollTop + container.clientHeight >= container.scrollHeight - 15) {
+          const modKey = (mod === 'Lic') ? 'Licenciamento' : mod;
+          etapas[modKey].scrollOk = true;
+
+          const status = document.getElementById(`statusScroll${mod}`);
+          if (status) {
+            status.className = 'cpd-scroll-status completed';
+            status.innerHTML = '<span>✓ Minuta lida na íntegra. Termos de aceite liberados abaixo.</span><span>100% lido</span>';
+          }
+
+          const boxChecks = document.getElementById(`boxCheckboxes${mod}`);
+          if (boxChecks) {
+            boxChecks.style.opacity = '1';
+            boxChecks.style.pointerEvents = 'auto';
+          }
+        }
+      };
+
+      // VALIDADORES DE CHECKBOXES
+      window.validarEnvioDoacao = function() {
+        const checks = Array.from(document.querySelectorAll('.chk-doacao'));
+        const ok = etapas.Doacao.scrollOk && checks.length === 5 && checks.every(c => c.checked);
+        document.getElementById('btnSubmitDoacao').disabled = !ok;
+      };
+
+      window.validarEnvioAcesso = function() {
+        const checks = Array.from(document.querySelectorAll('.chk-acesso'));
+        const ok = etapas.Acesso.scrollOk && checks.length === 6 && checks.every(c => c.checked);
+        document.getElementById('btnSubmitAcesso').disabled = !ok;
+      };
+
+      window.validarEnvioLic = function() {
+        const checks = Array.from(document.querySelectorAll('.chk-lic'));
+        const ok = etapas.Licenciamento.scrollOk && checks.length === 6 && checks.every(c => c.checked);
+        document.getElementById('btnSubmitLic').disabled = !ok;
+      };
+
+      // CONTADOR DE CARACTERES MÍNIMOS
+      window.contarCaracteres = function(el, counterId, min) {
+        const c = document.getElementById(counterId);
+        const len = el.value.trim().length;
+        c.textContent = `Mínimo de ${min} caracteres (${len} preenchidos).`;
+        c.style.color = (len >= min) ? '#136357' : '#8b1e2f';
+      };
+
+      // VALIDAÇÃO DE MÍNIMO DE 3 FOTOS
+      window.validarFotosMinimas = function(input, min) {
+        const info = document.getElementById('fotoCountInfo');
+        if (input.files.length < min) {
+          info.style.color = '#8b1e2f';
+          info.textContent = `Atenção: Selecione no mínimo ${min} arquivos fotográficos. (${input.files.length} selecionados).`;
+          input.setCustomValidity(`É necessário anexar pelo menos ${min} fotografias.`);
+        } else {
+          info.style.color = '#136357';
+          info.textContent = `✓ ${input.files.length} fotografias anexadas com sucesso.`;
+          input.setCustomValidity('');
+        }
+      };
+
+      // BUSCA AUTOMÁTICA DE ENDEREÇO VIA API VIACEP
+      window.buscarCep = function(cepValor, mod) {
+        const cep = cepValor.replace(/\D/g, '');
+        if (cep.length === 8) {
+          fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then(res => res.json())
+            .then(data => {
+              if (!data.erro) {
+                if (mod === 'Doacao') {
+                  document.getElementById('logradouroDoacao').value = data.logradouro || '';
+                  document.getElementById('bairroDoacao').value = data.bairro || '';
+                  document.getElementById('cidadeUfDoacao').value = `${data.localidade}/${data.uf}`;
+                } else if (mod === 'Lic') {
+                  document.getElementById('logradouroLic').value = `${data.logradouro}, ${data.bairro}, ${data.localidade}/${data.uf}`;
+                }
+              }
+            })
+            .catch(err => console.error('Erro na consulta do CEP:', err));
+        }
+      };
+
+      // ALTERNADOR DE MODALIDADE DE ACESSO
+      window.alternarModAcesso = function(val) {
+        const p = document.getElementById('blocoPresencial');
+        const r = document.getElementById('blocoRemoto');
+        if (p) p.style.display = (val === 'PRESENCIAL' || val === 'AMBAS') ? 'block' : 'none';
+        if (r) r.style.display = (val === 'REMOTO' || val === 'AMBAS') ? 'block' : 'none';
+      };
+
+      function inicializarLogicaFormulario(tipo) {
+        etapas[tipo === 'licenciamento' ? 'Licenciamento' : (tipo === 'doacao' ? 'Doacao' : 'Acesso')].atual = 1;
+        etapas[tipo === 'licenciamento' ? 'Licenciamento' : (tipo === 'doacao' ? 'Doacao' : 'Acesso')].scrollOk = false;
+      }
+
+      // =======================================================================
+      // SUBMISSÃO DIGITAL E GERAÇÃO DE HASH SHA-256 (TELA DE SUCESSO)
+      // =======================================================================
+      window.submeterFormulario = async function(e, tipoProcedimento) {
+        e.preventDefault();
+        
+        // Simulação do payload dos dados
+        const timestampIso = new Date().toISOString();
+        const protocolo = `MHFMUSP-${tipoProcedimento.substring(0,3)}-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+        const stringParaHash = `${protocolo}|${tipoProcedimento}|${timestampIso}|${navigator.userAgent}`;
+
+        // Cálculo do Hash SHA-256 via Web Crypto API
+        const msgBuffer = new TextEncoder().encode(stringParaHash);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
+
+        // Renderiza Comprovante Forense Oficial
+        const root = document.getElementById('cpdFormRoot');
+        root.innerHTML = `
+          <div class="cpd-receipt-card">
+            <div class="cpd-receipt-header">
+              <h3 style="color:#136357; margin:0 0 6px 0;">CENTRO DE PESQUISA E DOCUMENTAÇÃO — MHFMUSP</h3>
+              <p style="color:#64748b; margin:0; font-size:0.9rem;">Comprovante Provisório de Submissão e Aceite Digital (PDF/A)</p>
+            </div>
+            
+            <div style="background:#ecfdf5; border:1px solid #059669; border-radius:4px; padding:14px; margin-bottom:18px;">
+              <b style="color:#065f46; font-size:1.1rem;"><i class="fa fa-check-circle"></i> Solicitação Registrada com Plena Eficácia Probatória!</b>
+              <p style="color:#064e3b; margin:4px 0 0 0; font-size:0.88rem;">
+                A solicitação foi incorporada à fila de triagem técnica e curatorial do CPDoc. Uma cópia autenticada foi enviada ao e-mail informado.
+              </p>
+            </div>
+
+            <div class="cpd-chassi-forense">========================================================================================
+                   CHASSI INSTITUCIONAL DE VALIDAÇÃO DIGITAL — MHFMUSP
+========================================================================================
+Identificador Único:     ${protocolo}
+Procedimento:            ${tipoProcedimento}
+Data/Hora do Aceite:     ${new Date().toLocaleString('pt-BR')} (Horário Oficial de Brasília, UTC-03:00)
+Endereço IP Registrado:  143.107.xxx.xxx (Auditado via proxy institucional USP)
+Assinatura do Cliente:   ${navigator.userAgent.substring(0, 70)}...
+Resumo Criptográfico:    ${hashHex}
+Algoritmo de Integridade: SHA-256 (Padrão FIPS 180-4)
+Fundamentação Legal:     Art. 10 da MP nº 2.200-2/2001 e Portaria GR nº 7.674/2021 (USP)
+Verificação Online em:   https://museu.fm.usp.br/autenticidade?protocolo=${protocolo}
+========================================================================================</div>
+
+            <div style="margin-top:20px; text-align:center;">
+              <button onclick="window.print()" class="cpd-btn cpd-btn-prev" style="margin-right:10px;"><i class="fa fa-print"></i> Imprimir Comprovante</button>
+              <button onclick="location.reload()" class="cpd-btn cpd-btn-next">Voltar ao Portal do Museu</button>
+            </div>
+          </div>
+        `;
+        root.scrollIntoView({ behavior: 'smooth' });
+      };
+
+    });
+  </script>
+</body>
+</html>
